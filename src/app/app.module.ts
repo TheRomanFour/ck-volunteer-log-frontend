@@ -7,6 +7,15 @@ import { JuiceProviderFactory } from "../providers/JuiceFactory";
 import { Juice } from "../providers/Juice";
 import { HttpClientModule } from "@angular/common/http";
 import { VolunteersModule } from "./modules/volunteers/volunteers.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatDividerModule} from "@angular/material/divider";
+import {FormsModule} from "@angular/forms";
+import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
     declarations: [
@@ -16,7 +25,18 @@ import { VolunteersModule } from "./modules/volunteers/volunteers.module";
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        VolunteersModule
+        VolunteersModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatIconModule,
+        FormsModule,
+        NgxDatatableModule,
+        MatCardModule,
+
+
     ],
     providers: [
         Juice,
