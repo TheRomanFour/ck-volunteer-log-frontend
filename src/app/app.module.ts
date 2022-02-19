@@ -16,10 +16,14 @@ import {MatDividerModule} from "@angular/material/divider";
 import {FormsModule} from "@angular/forms";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {MatCardModule} from "@angular/material/card";
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        SidebarComponent,
+        ContentComponent
     ],
     imports: [
         BrowserModule,

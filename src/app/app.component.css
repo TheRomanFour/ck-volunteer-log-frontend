@@ -34,10 +34,10 @@ mat-sidenav-container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
 
-    mat-icon {
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+mat-icon {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 

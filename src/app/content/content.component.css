@@ -1,0 +1,9 @@
+body {
+    margin-left: 1000px;
+}
+
+.content {
+    height: calc(100vh - 98px);
+    margin: 560px 16px 16px 30px;
+    justify-content: center;
+}
