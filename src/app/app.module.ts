@@ -1,6 +1,5 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JuiceProviderFactory } from "../providers/JuiceFactory";
@@ -13,17 +12,21 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDividerModule} from "@angular/material/divider";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {MatCardModule} from "@angular/material/card";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ContentComponent } from './content/content.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { VolonteriComponent } from './volonteri/volonteri.component';
+
 
 @NgModule({
     declarations: [
         AppComponent,
         SidebarComponent,
-        ContentComponent
+        ContentComponent,
+        VolonteriComponent,
     ],
     imports: [
         BrowserModule,
@@ -39,6 +42,12 @@ import { ContentComponent } from './content/content.component';
         FormsModule,
         NgxDatatableModule,
         MatCardModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+
+
+
+
 
 
     ],
