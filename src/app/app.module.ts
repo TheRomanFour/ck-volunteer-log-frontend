@@ -17,7 +17,6 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {MatCardModule} from "@angular/material/card";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {VolunteerListingComponent} from "./modules/volunteers/components/volunteer-listing/volunteer-listing.component";
 
 
 

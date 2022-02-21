@@ -1,7 +1,4 @@
 
-
-
-
 <mat-toolbar>
     <button mat-icon-button *ngIf = "sidenav.mode === 'over'" (click) ="sidenav.toggle()" >
         <mat-icon *ngIf = "!sidenav.opened">
@@ -22,7 +19,7 @@
 
         <mat-divider> </mat-divider>
 
-        <button mat-button class="menu-button">
+        <button mat-button class="menu-button" >
             <mat-icon>person</mat-icon>
             <span>Volonteri</span>
         </button>
@@ -45,9 +42,9 @@
 
 
     </mat-sidenav>
-<div class=" content ">
 
-    <app-volunteer-listing></app-volunteer-listing>
+<div class=" content ">
+    <router-outlet></router-outlet>
 
 </div>
 

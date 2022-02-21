@@ -1,7 +1,7 @@
 
 <nav class ="navbar navbar-light " style="background-color:red; ">
     <div class="container-fluid">
-        <h1 style="color: aliceblue;">Tablica volontera</h1>
+        <h1 style="color: aliceblue;">Volonteri</h1>
         <div class="d-flex">
             <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  >
                 Dodaj volontera
@@ -10,6 +10,13 @@
     </div>
 </nav>
 
+<div>
+    <ngx-datatable
+        [rows]="rows">
+
+
+    </ngx-datatable>
+</div>
 
 
 
