@@ -12,6 +12,9 @@ import { VolunteersService } from "./volunteers.service";
         CommonModule,
         VolunteersRouting
     ],
+    exports: [
+        VolunteerListingComponent
+    ],
     providers: [
         VolunteersService
     ]

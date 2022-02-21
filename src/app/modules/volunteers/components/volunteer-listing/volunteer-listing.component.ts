@@ -19,6 +19,7 @@ export class VolunteerListingComponent implements OnInit {
 
     rows: Volunteer[] = [];
 
+
     constructor(private volunteers: VolunteersService) {
     }
 

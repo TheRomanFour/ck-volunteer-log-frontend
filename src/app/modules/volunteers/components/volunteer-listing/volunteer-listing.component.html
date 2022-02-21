@@ -1,1 +1,61 @@
-<p>volunteer-listing works!</p>
+
+<nav class ="navbar navbar-light " style="background-color:red; ">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Tablica volontera</h1>
+        <div class="d-flex">
+            <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  >
+                Dodaj volontera
+            </button>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<button class="btn btn-info"> Edit</button>
+<button class="btn btn-danger mx-3"> Delete</button>
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="false"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="staticBackdropLabel"> Unos volontera</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="ime" class="form-label">Ime </label>
+                        <input type="text" class="form-control" id="ime" >
+
+                        <label for="prezime" class="form-label">Prezime </label>
+                        <input type="text" class="form-control" id="prezime">
+
+                        <label for="email" class="form-label">Email </label>
+                        <input type="email"  class="form-control"  id="email">
+
+
+                        <label for="oib" class="form-label">Oib </label>
+                        <input type="text" class="form-control"  id="oib">
+
+
+                        <label for="broj" class="form-label">Broj </label>
+                        <input type="text"  class="form-control"  id="broj">
+
+
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Spremi</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+            </div>
+        </div>
+    </div>
+</div>
+

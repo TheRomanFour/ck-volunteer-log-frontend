@@ -16,17 +16,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {MatCardModule} from "@angular/material/card";
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ContentComponent } from './content/content.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { VolonteriComponent } from './volonteri/volonteri.component';
+import {VolunteerListingComponent} from "./modules/volunteers/components/volunteer-listing/volunteer-listing.component";
+
 
 
 @NgModule({
     declarations: [
         AppComponent,
         SidebarComponent,
-        ContentComponent,
-        VolonteriComponent,
+
+
     ],
     imports: [
         BrowserModule,
@@ -40,10 +40,10 @@ import { VolonteriComponent } from './volonteri/volonteri.component';
         MatDividerModule,
         MatIconModule,
         FormsModule,
-        NgxDatatableModule,
         MatCardModule,
         MatDialogModule,
         ReactiveFormsModule,
+        NgxDatatableModule,
 
 
 
