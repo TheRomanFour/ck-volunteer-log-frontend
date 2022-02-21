@@ -20,6 +20,7 @@ export class VolunteerListingComponent implements OnInit {
     rows: Volunteer[] = [];
 
 
+
     constructor(private volunteers: VolunteersService) {
     }
 
@@ -34,6 +35,10 @@ export class VolunteerListingComponent implements OnInit {
 
         this.rows = result.payload.items;
         console.log(result);
+    }
+
+    onSubmit(){
+
     }
 
 }

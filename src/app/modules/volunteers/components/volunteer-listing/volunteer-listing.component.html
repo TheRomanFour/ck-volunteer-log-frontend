@@ -32,24 +32,59 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
             </div>
             <div class="modal-body">
-                <form>
+
+                <form #inputForm ="ngForm" (ngSubmit)="onSubmit">
+
+                    {{inputForm.value | json}}
+
+
                     <div class="mb-3">
-                        <label for="ime" class="form-label">Ime </label>
-                        <input type="text" class="form-control" id="ime" >
 
-                        <label for="prezime" class="form-label">Prezime </label>
-                        <input type="text" class="form-control" id="prezime">
+                        <label  for="firstname" class="form-label">Ime </label>
+                        <input
+                                required
+                                ngModel name ="firstname"
+                                #firstname ="ngModel"
+                                type="text"
+                                class="form-control"
+                                id="firstname" >
 
-                        <label for="email" class="form-label">Email </label>
-                        <input type="email"  class="form-control"  id="email">
+                        <div class="alert alert-danger"
+                             *ngIf="!firstname.valid && firstname.touched">
+                            Ime je obavezno!
+                        </div>
 
+                        <label for="lastname" class="form-label">Prezime </label>
+                        <input required
+                               ngModel name="lastname"
+                               #lastname = "ngModel"
+                               type="text"
+                               class="form-control"
+                               id="lastname">
 
-                        <label for="oib" class="form-label">Oib </label>
-                        <input type="text" class="form-control"  id="oib">
+                        <div class="alert alert-danger"
+                             *ngIf="!lastname.valid && lastname.touched">
+                            Prezime je obavezno!
+                        </div>
 
+                        <label
+                               for="email"
+                                class="form-label"
+                                >
+                            Email
+                        </label>
+                        <input type="email"
+                               ngModel name="email"
+                               #email="ngModel"
+                               class="form-control"  id="email">
 
-                        <label for="broj" class="form-label">Broj </label>
-                        <input type="text"  class="form-control"  id="broj">
+                        <label for="phone"
+                               class="form-label">Broj </label>
+
+                        <input type="phone"
+                               ngModel name="phone"
+                               #phone= "ngModel"
+                               class="form-control"  id="phone">
 
 
 

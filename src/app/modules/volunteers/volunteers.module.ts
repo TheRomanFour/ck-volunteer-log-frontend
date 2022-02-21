@@ -4,6 +4,7 @@ import { VolunteersRouting } from "./volunteers.routing";
 import { VolunteerListingComponent } from './components/volunteer-listing/volunteer-listing.component';
 import { VolunteersService } from "./volunteers.service";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
     imports: [
         CommonModule,
         VolunteersRouting,
-        NgxDatatableModule
+        NgxDatatableModule,
+        FormsModule
     ],
     exports: [
         VolunteerListingComponent
