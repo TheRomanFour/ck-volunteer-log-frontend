@@ -6,7 +6,7 @@ import { Volunteer } from "../../volunteers.model";
 @Component({
     selector: 'app-volunteer-listing',
     templateUrl: './volunteer-listing.component.html',
-    styleUrls: ['./volunteer-listing.component.css']
+    styleUrls: ['./volunteer-listing.component.scss']
 })
 export class VolunteerListingComponent implements OnInit {
 
