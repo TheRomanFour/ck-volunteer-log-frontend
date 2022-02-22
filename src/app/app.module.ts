@@ -17,6 +17,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {MatCardModule} from "@angular/material/card";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
 
 
 
@@ -43,12 +44,7 @@ import {MatDialogModule} from "@angular/material/dialog";
         MatDialogModule,
         ReactiveFormsModule,
         NgxDatatableModule,
-
-
-
-
-
-
+        Angular2PromiseButtonModule.forRoot()
     ],
     providers: [
         Juice,

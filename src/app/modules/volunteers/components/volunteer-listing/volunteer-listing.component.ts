@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { VolunteersService } from "../../volunteers.service";
 import { IFetchOptions } from "../../../../../interfaces/IFetchOptions";
 import { Volunteer } from "../../volunteers.model";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { VolunteerModalComponent } from "./volunteer-modal/volunteer-modal.component";
 
 @Component({
     selector: 'app-volunteer-listing',
@@ -19,9 +21,10 @@ export class VolunteerListingComponent implements OnInit {
 
     rows: Volunteer[] = [];
 
+    test = "Test";
 
-
-    constructor(private volunteers: VolunteersService) {
+    constructor(private volunteers: VolunteersService,
+                private modal: NgbModal) {
     }
 
     async ngOnInit(): Promise<void> {
@@ -39,6 +42,25 @@ export class VolunteerListingComponent implements OnInit {
 
     onSubmit(){
 
+    }
+
+    openVolunteerWizard() {
+        const modal = this.modal.open(VolunteerModalComponent);
+        modal.result.then(async res => {
+            if (!res.success)
+                return;
+
+            await this.fetchVolunteers();
+        });
+    }
+
+    onSelect(event: Event & any) {
+        if (event.type !== "click")
+            return;
+
+        console.log(event.row);
+
+        //modal.componentInstance.id = event.row._id;
     }
 
 }

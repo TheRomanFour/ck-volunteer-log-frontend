@@ -11,7 +11,7 @@ export class VolunteersService {
     constructor(private juice: Juice) {
     }
 
-    get(id: string): Promise<Result> {
+    get(id: string): Promise<Result<Volunteer>> {
         return this.juice.getNoHeaders(`/api/volunteer/${id}`);
     }
 

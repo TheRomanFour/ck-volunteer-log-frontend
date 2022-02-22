@@ -1,9 +1,8 @@
-
-<nav class ="navbar navbar-light " style="background-color:red; ">
+<nav class="navbar navbar-light " style="background-color:red; ">
     <div class="container-fluid">
         <h1 style="color: aliceblue;">Volonteri</h1>
         <div class="d-flex">
-            <button  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  >
+            <button (click)="openVolunteerWizard()" type="button" class="btn btn-success">
                 Dodaj volontera
             </button>
         </div>
@@ -12,42 +11,47 @@
 
 <div>
     <ngx-datatable
-        [rows]="rows">
+            class="bootstrap fullscreen"
+            [rowHeight]="40"
+            (activate)='onSelect($event)'
+            [rows]="rows">
 
+        <ngx-datatable-column name="Ime">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.firstname }}
+            </ng-template>
+        </ngx-datatable-column>
 
     </ngx-datatable>
 </div>
 
 
 
-<button class="btn btn-info"> Edit</button>
-<button class="btn btn-danger mx-3"> Delete</button>
-
-
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="false"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="staticBackdropLabel"> Unos volontera</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"> </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
 
-                <form #inputForm ="ngForm" (ngSubmit)="onSubmit">
+                <form #inputForm="ngForm" (ngSubmit)="onSubmit">
 
                     {{inputForm.value | json}}
 
 
                     <div class="mb-3">
 
-                        <label  for="firstname" class="form-label">Ime </label>
+                        <label for="firstname" class="form-label">Ime </label>
                         <input
                                 required
-                                ngModel name ="firstname"
-                                #firstname ="ngModel"
+                                ngModel name="firstname"
+                                #firstname="ngModel"
                                 type="text"
                                 class="form-control"
-                                id="firstname" >
+                                id="firstname">
 
                         <div class="alert alert-danger"
                              *ngIf="!firstname.valid && firstname.touched">
@@ -57,7 +61,7 @@
                         <label for="lastname" class="form-label">Prezime </label>
                         <input required
                                ngModel name="lastname"
-                               #lastname = "ngModel"
+                               #lastname="ngModel"
                                type="text"
                                class="form-control"
                                id="lastname">
@@ -68,24 +72,23 @@
                         </div>
 
                         <label
-                               for="email"
+                                for="email"
                                 class="form-label"
-                                >
+                        >
                             Email
                         </label>
                         <input type="email"
                                ngModel name="email"
                                #email="ngModel"
-                               class="form-control"  id="email">
+                               class="form-control" id="email">
 
                         <label for="phone"
                                class="form-label">Broj </label>
 
                         <input type="phone"
                                ngModel name="phone"
-                               #phone= "ngModel"
-                               class="form-control"  id="phone">
-
+                               #phone="ngModel"
+                               class="form-control" id="phone">
 
 
                     </div>
