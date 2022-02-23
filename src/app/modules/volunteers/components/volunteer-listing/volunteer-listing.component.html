@@ -22,85 +22,41 @@
             </ng-template>
         </ngx-datatable-column>
 
+        <ngx-datatable-column name="Prezime">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.lastname }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="E-mail">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.email }}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="Broj">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.phone }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Obriši" prop="name">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
+                         let-row="row">
+
+                <button type="button" class="btn btn-danger" style="background-color:red; border: red;"
+                 (click)="openVolunteerDelete()" >
+                    <mat-icon>delete</mat-icon></button>
+
+
+            </ng-template>
+        </ngx-datatable-column>
+
+
     </ngx-datatable>
 </div>
 
 
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title" id="staticBackdropLabel"> Unos volontera</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-
-                <form #inputForm="ngForm" (ngSubmit)="onSubmit">
-
-                    {{inputForm.value | json}}
-
-
-                    <div class="mb-3">
-
-                        <label for="firstname" class="form-label">Ime </label>
-                        <input
-                                required
-                                ngModel name="firstname"
-                                #firstname="ngModel"
-                                type="text"
-                                class="form-control"
-                                id="firstname">
-
-                        <div class="alert alert-danger"
-                             *ngIf="!firstname.valid && firstname.touched">
-                            Ime je obavezno!
-                        </div>
-
-                        <label for="lastname" class="form-label">Prezime </label>
-                        <input required
-                               ngModel name="lastname"
-                               #lastname="ngModel"
-                               type="text"
-                               class="form-control"
-                               id="lastname">
-
-                        <div class="alert alert-danger"
-                             *ngIf="!lastname.valid && lastname.touched">
-                            Prezime je obavezno!
-                        </div>
-
-                        <label
-                                for="email"
-                                class="form-label"
-                        >
-                            Email
-                        </label>
-                        <input type="email"
-                               ngModel name="email"
-                               #email="ngModel"
-                               class="form-control" id="email">
-
-                        <label for="phone"
-                               class="form-label">Broj </label>
-
-                        <input type="phone"
-                               ngModel name="phone"
-                               #phone="ngModel"
-                               class="form-control" id="phone">
-
-
-                    </div>
-
-
-                    <button type="submit" class="btn btn-primary">Spremi</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-            </div>
-        </div>
-    </div>
-</div>
 

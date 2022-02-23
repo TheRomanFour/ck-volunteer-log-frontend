@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { VolunteerModalComponent } from "./components/volunteer-listing/volunteer-modal/volunteer-modal.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
         VolunteerModalComponent
     ],
     imports: [
+        MatIconModule,
         CommonModule,
         VolunteersRouting,
         NgxDatatableModule,

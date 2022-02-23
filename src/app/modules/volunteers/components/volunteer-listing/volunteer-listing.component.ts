@@ -4,6 +4,7 @@ import { IFetchOptions } from "../../../../../interfaces/IFetchOptions";
 import { Volunteer } from "../../volunteers.model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { VolunteerModalComponent } from "./volunteer-modal/volunteer-modal.component";
+import {VolunteerDeleteModalComponent} from "./volunteer-delete-modal/volunteer-delete-modal.component";
 
 @Component({
     selector: 'app-volunteer-listing',
@@ -61,6 +62,21 @@ export class VolunteerListingComponent implements OnInit {
         console.log(event.row);
 
         //modal.componentInstance.id = event.row._id;
+    }
+
+
+    openVolunteerDelete() {
+        const modal = this.modal.open(VolunteerDeleteModalComponent);
+        modal.result.then(async res => {
+            if (!res.success)
+                return;
+
+            await this.fetchVolunteers();
+        });
+    }
+
+    delete(){
+        console.log("obrisi")
     }
 
 }
