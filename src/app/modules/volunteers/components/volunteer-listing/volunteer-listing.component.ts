@@ -64,7 +64,6 @@ export class VolunteerListingComponent implements OnInit {
         //modal.componentInstance.id = event.row._id;
     }
 
-
     openVolunteerDelete() {
         const modal = this.modal.open(VolunteerDeleteModalComponent);
         modal.result.then(async res => {
@@ -74,6 +73,7 @@ export class VolunteerListingComponent implements OnInit {
             await this.fetchVolunteers();
         });
     }
+
 
     delete(){
         console.log("obrisi")

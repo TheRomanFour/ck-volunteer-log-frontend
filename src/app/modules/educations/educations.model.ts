@@ -1,15 +1,13 @@
 import { MultiLanguageString } from "../../../interfaces/MultilanguageString";
 
-export type Volunteer = {
+export type Education = {
     created: Date;
     updated: Date;
 
     salutation: string;
     title: string;
-    firstname: string;
-    lastname: string;
     name: string;
-
+    description: string;
     phone: string;
     email: string;
     type: string;
@@ -18,7 +16,6 @@ export type Volunteer = {
     media: Array<EntityMedia>;
 
 }
-
 
 declare type EntityMedia = {
     _id: string;
