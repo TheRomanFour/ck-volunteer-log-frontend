@@ -18,8 +18,7 @@ import {MatCardModule} from "@angular/material/card";
 import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
-import { EducationListingComponent } from './modules/volunteers/components/education-listing/education-listing.component';
-import { TrainingsListingComponent } from './modules/volunteers/components/trainings-listing/trainings-listing.component';
+
 
 
 
@@ -27,13 +26,14 @@ import { TrainingsListingComponent } from './modules/volunteers/components/train
     declarations: [
         AppComponent,
         SidebarComponent,
-        EducationListingComponent,
-        TrainingsListingComponent,
+
+
 
 
     ],
     imports: [
         BrowserModule,
+        NgxDatatableModule,
         AppRoutingModule,
         HttpClientModule,
         VolunteersModule,
@@ -47,7 +47,6 @@ import { TrainingsListingComponent } from './modules/volunteers/components/train
         MatCardModule,
         MatDialogModule,
         ReactiveFormsModule,
-        NgxDatatableModule,
         Angular2PromiseButtonModule.forRoot()
     ],
     providers: [
