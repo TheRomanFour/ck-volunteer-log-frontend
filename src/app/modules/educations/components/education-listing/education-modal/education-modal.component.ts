@@ -27,7 +27,6 @@ export class EducationModalComponent implements OnInit {
     close() {
         this.aModal.close({ success: false });
     }
-
     save() {
         this.promiseBtn = (async () => {
             const data = this.createForm.value;
