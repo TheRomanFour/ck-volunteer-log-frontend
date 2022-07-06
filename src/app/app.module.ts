@@ -19,6 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
 import {EducationsModule} from "./modules/educations/educations.module";
+import {TrainingsModule} from "./modules/trainings/trainings.module";
 
 
 
@@ -35,6 +36,7 @@ import {EducationsModule} from "./modules/educations/educations.module";
     imports: [
         ReactiveFormsModule,
         EducationsModule,
+        TrainingsModule,
         BrowserModule,
         NgxDatatableModule,
         AppRoutingModule,

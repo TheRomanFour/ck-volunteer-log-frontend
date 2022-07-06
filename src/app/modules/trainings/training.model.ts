@@ -1,14 +1,14 @@
 import { MultiLanguageString } from "../../../interfaces/MultilanguageString";
 
-export type Education = {
+export type Training = {
     created: Date;
     updated: Date;
 
     salutation: string;
     title: string;
     name: string;
-    hours: number;
     description: string;
+    hours: number;
     phone: string;
     email: string;
     type: string;

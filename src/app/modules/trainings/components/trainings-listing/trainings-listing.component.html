@@ -1,1 +1,57 @@
-<p>trainings-listing works!</p>
+<nav class="navbar navbar-light " style="background-color:red; ">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Vježbe</h1>
+        <div class="d-flex">
+            <button (click)="openTrainingWizard()" type="button" class="btn btn-success">
+                Dodaj vježbu
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <ngx-datatable
+            class="bootstrap fullscreen"
+            [rowHeight]="50"
+            (activate)='onSelect($event)'
+            [rows]="rows">
+
+        <ngx-datatable-column name="Naziv">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.naziv }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Datum">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.date }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Vrijeme trajanja">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.time }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Opis">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.description }}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="Obriši" prop="name">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
+                         let-row="row">
+
+                <button type="button" class="btn btn-danger" style="background-color:red; border: red;"
+                        (click)="openTrainingDelete()" >
+                    <mat-icon>delete</mat-icon></button>
+
+            </ng-template>
+        </ngx-datatable-column>
+
+
+    </ngx-datatable>
+</div>

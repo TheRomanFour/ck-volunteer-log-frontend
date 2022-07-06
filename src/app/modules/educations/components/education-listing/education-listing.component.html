@@ -12,7 +12,7 @@
 <div>
     <ngx-datatable
             class="bootstrap fullscreen"
-            [rowHeight]="40"
+            [rowHeight]="50"
             (activate)='onSelect($event)'
             [rows]="rows">
 
@@ -25,6 +25,12 @@
         <ngx-datatable-column name="Datum">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
                 {{ row.date }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Vrijeme trajanja">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.time }}
             </ng-template>
         </ngx-datatable-column>
 

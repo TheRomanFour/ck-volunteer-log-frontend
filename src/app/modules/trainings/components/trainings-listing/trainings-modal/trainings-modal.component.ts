@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import {EducationsService} from "../../../educations.service";
+import {TrainingsService} from "../../../trainings.service";
 
 @Component({
-    selector: "education-modal-wizard",
-    templateUrl: "./education-modal.component.html"
+    selector: "training-modal-wizard",
+    templateUrl: "./trainings-modal.component.html"
 })
-export class EducationModalComponent implements OnInit {
+export class TrainingsModalComponent implements OnInit {
 
     createForm: FormGroup = new FormGroup({
         title: new FormControl("",Validators.nullValidator),
@@ -20,7 +20,7 @@ export class EducationModalComponent implements OnInit {
     promiseBtn: any;
 
     constructor(private aModal: NgbActiveModal,
-                private educationsService: EducationsService) {
+                private trainingsService: TrainingsService) {
     }
 
     ngOnInit(): void {
@@ -32,7 +32,7 @@ export class EducationModalComponent implements OnInit {
     save() {
         this.promiseBtn = (async () => {
             const data = this.createForm.value;
-            const result = await this.educationsService.create(data);
+            const result = await this.trainingsService.create(data);
             if (!result.success) {
                 //ngx-toastr error message
                 return;

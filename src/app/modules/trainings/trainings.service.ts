@@ -1,21 +1,21 @@
 import { Juice } from "../../../providers/Juice";
 import { Result } from "../../../interfaces/Result";
 import { FetchResult } from "../../../interfaces/FetchResult";
-import { Education } from "./educations.model";
 import { IFetchOptions } from "../../../interfaces/IFetchOptions";
 import { Injectable } from "@angular/core";
+import {Training} from "./training.model";
 
 @Injectable()
-export class EducationsService {
+export class TrainingsService {
 
     constructor(private juice: Juice) {
     }
 
-    get(id: string): Promise<Result<Education>> {
+    get(id: string): Promise<Result<Training>> {
         return this.juice.getNoHeaders(`/api/volunteer/${id}`);
     }
 
-    fetch(page: number, pageSize: number, options: IFetchOptions): Promise<FetchResult<Education>> {
+    fetch(page: number, pageSize: number, options: IFetchOptions): Promise<FetchResult<Training>> {
         return this.juice.postNoHeaders(`/api/volunteer/${page}/${pageSize}`, options)
     }
 
