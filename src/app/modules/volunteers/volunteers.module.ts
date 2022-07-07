@@ -9,11 +9,15 @@ import { VolunteerModalComponent } from "./components/volunteer-listing/voluntee
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
 import {MatIconModule} from "@angular/material/icon";
+import {
+    VolunteerDeleteModalComponent
+} from "./components/volunteer-listing/volunteer-delete-modal/volunteer-delete-modal.component";
 
 @NgModule({
     declarations: [
         VolunteerListingComponent,
-        VolunteerModalComponent
+        VolunteerModalComponent,
+        VolunteerDeleteModalComponent,
     ],
     imports: [
         MatIconModule,

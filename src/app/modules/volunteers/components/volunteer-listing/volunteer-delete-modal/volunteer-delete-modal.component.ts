@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {VolunteersService} from "../../../volunteers.service";
-import {id} from "@swimlane/ngx-datatable";
 
 
 @Component({
@@ -11,6 +10,8 @@ import {id} from "@swimlane/ngx-datatable";
 })
 
 export class VolunteerDeleteModalComponent implements OnInit {
+
+
 
 
     //treba passat id od volontera na koji smo kliknuli
@@ -26,10 +27,10 @@ export class VolunteerDeleteModalComponent implements OnInit {
     close() {
         this.aModal.close({ success: false });
     }
-    delete(){/*
+    delete(/*_id:string */){
+        /*
         this.promiseBtn = (async () => {
-            const data = this.volunteerService.get(id());
-            const result = await this.volunteerService.delete(__id);
+            const result = await this.volunteerService.delete(_id);
             if (!result.success) {
                 //ngx-toastr error message
                 return;
@@ -38,8 +39,8 @@ export class VolunteerDeleteModalComponent implements OnInit {
             //Show ngx-toastr success message
             this.aModal.close({ success: true });
         })()
-    */
-        console.log("obrisan");
 
+        console.log("obrisan");
+*/
     }
 }
