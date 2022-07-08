@@ -14,7 +14,6 @@ export class VolunteerDeleteModalComponent implements OnInit {
 
 
     volunteer_id: string = "";
-    //treba passat id od volontera na koji smo kliknuli
 
     constructor(private aModal: NgbActiveModal,
                 private volunteerService: VolunteersService) {
@@ -28,10 +27,11 @@ export class VolunteerDeleteModalComponent implements OnInit {
     close() {
         this.aModal.close({ success: false });
     }
-    delete(/*_id:string */){
-        /*
+    delete_volunteer(volunteer_id:string){
+
         this.promiseBtn = (async () => {
-            const result = await this.volunteerService.delete(_id);
+            const result = await this.volunteerService.delete(volunteer_id);
+            console.log("obrisan je kao");
             if (!result.success) {
                 //ngx-toastr error message
                 return;
@@ -41,7 +41,6 @@ export class VolunteerDeleteModalComponent implements OnInit {
             this.aModal.close({ success: true });
         })()
 
-        console.log("obrisan");
-*/
+
     }
 }

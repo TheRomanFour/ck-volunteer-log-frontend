@@ -13,6 +13,8 @@ import {
     VolunteerDeleteModalComponent
 } from "./components/volunteer-listing/volunteer-delete-modal/volunteer-delete-modal.component";
 
+import {ToastrModule} from 'ngx-toastr'
+
 @NgModule({
     declarations: [
         VolunteerListingComponent,
@@ -27,6 +29,7 @@ import {
         FormsModule,
         NgbModule,
         ReactiveFormsModule,
+        ToastrModule.forRoot(),
         Angular2PromiseButtonModule
     ],
     exports: [

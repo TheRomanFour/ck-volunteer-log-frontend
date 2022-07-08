@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { VolunteersService } from "../../../volunteers.service";
+import {ToastrService} from 'ngx-toastr'
 
 @Component({
     selector: "volunteer-modal-wizard",
@@ -19,7 +20,8 @@ export class VolunteerModalComponent implements OnInit {
     promiseBtn: any;
 
     constructor(private aModal: NgbActiveModal,
-                private volunteerService: VolunteersService) {
+                private volunteerService: VolunteersService,
+                private toastr: ToastrService) {
     }
 
     ngOnInit(): void {
@@ -39,8 +41,14 @@ export class VolunteerModalComponent implements OnInit {
             }
 
             //Show ngx-toastr success message
+            this.savedToastr()
+
             this.aModal.close({ success: true });
+
         })()
+    }
+    savedToastr(){
+        this.toastr.success("Uspješno spremljeno",'tittle')
     }
 
 }

@@ -20,9 +20,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
 import {EducationsModule} from "./modules/educations/educations.module";
 import {TrainingsModule} from "./modules/trainings/trainings.module";
-
-
-
+import {ToastrModule} from 'ngx-toastr'
 
 @NgModule({
     declarations: [
@@ -52,7 +50,10 @@ import {TrainingsModule} from "./modules/trainings/trainings.module";
         MatCardModule,
         MatDialogModule,
         ReactiveFormsModule,
-        Angular2PromiseButtonModule.forRoot()
+        Angular2PromiseButtonModule.forRoot(),
+        ToastrModule.forRoot(),
+
+
     ],
     providers: [
         Juice,
