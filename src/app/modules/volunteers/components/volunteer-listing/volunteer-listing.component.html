@@ -45,7 +45,8 @@
             <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
                          let-row="row">
 
-                <button type="button" class="btn btn-danger" style="background-color:red; border: red;" (click)="openVolunteerDelete()">
+                <!--send "row" as argument to the function openVolunteerDelete()-->
+                <button type="button" class="btn btn-danger" style="background-color:red; border: red;" (click)="openVolunteerDelete(row);$event.stopPropagation()">
                     <mat-icon>delete</mat-icon>
                 </button>
 

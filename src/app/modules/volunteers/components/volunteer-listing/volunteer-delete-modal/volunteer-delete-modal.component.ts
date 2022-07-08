@@ -13,13 +13,14 @@ export class VolunteerDeleteModalComponent implements OnInit {
 
 
 
-
+    volunteer_id: string = "";
     //treba passat id od volontera na koji smo kliknuli
 
     constructor(private aModal: NgbActiveModal,
                 private volunteerService: VolunteersService) {
     }
     ngOnInit(): void {
+        console.log(this.volunteer_id);
     }
 
     promiseBtn: any;

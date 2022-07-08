@@ -58,14 +58,14 @@ export class VolunteerListingComponent implements OnInit {
     onSelect(event: Event & any) {
         if (event.type !== "click")
             return;
-
-        console.log(event.row);
-
         //modal.componentInstance.id = event.row._id;
     }
 
-    openVolunteerDelete() {
+    //Here you need to pass reference from HTML
+    openVolunteerDelete(row: Volunteer) {
         const modal = this.modal.open(VolunteerDeleteModalComponent);
+        //Send data to modal -> Modal needs to have class variable with same name
+        modal.componentInstance.volunteer_id = row._id;
         modal.result.then(async res => {
             if (!res.success)
                 return;

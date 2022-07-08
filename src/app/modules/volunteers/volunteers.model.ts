@@ -17,6 +17,7 @@ export type Volunteer = {
     attributes: any;
     media: Array<EntityMedia>;
 
+    _id?: string;
 }
 
 
