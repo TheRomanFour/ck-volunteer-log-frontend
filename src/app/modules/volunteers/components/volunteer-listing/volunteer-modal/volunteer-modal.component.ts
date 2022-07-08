@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { VolunteersService } from "../../../volunteers.service";
 import {ToastrService} from 'ngx-toastr'
 
@@ -10,11 +10,11 @@ import {ToastrService} from 'ngx-toastr'
 })
 export class VolunteerModalComponent implements OnInit {
 
-    createForm: FormGroup = new FormGroup({
-        firstname: new FormControl("", Validators.required),
-        lastname: new FormControl("", Validators.required),
-        email: new FormControl("", Validators.required),
-        phone: new FormControl("", Validators.nullValidator)
+    createForm: UntypedFormGroup = new UntypedFormGroup({
+        firstname: new UntypedFormControl("", Validators.required),
+        lastname: new UntypedFormControl("", Validators.required),
+        email: new UntypedFormControl("", Validators.required),
+        phone: new UntypedFormControl("", Validators.nullValidator)
     });
 
     promiseBtn: any;
@@ -37,18 +37,21 @@ export class VolunteerModalComponent implements OnInit {
             const result = await this.volunteerService.create(data);
             if (!result.success) {
                 //ngx-toastr error message
+               this.failedToastr()
                 return;
             }
 
             //Show ngx-toastr success message
-            this.savedToastr()
-
+            this.savedToastr();
             this.aModal.close({ success: true });
 
         })()
     }
     savedToastr(){
-        this.toastr.success("Uspješno spremljeno",'tittle')
+        this.toastr.success("Volonter spremljen",'Uspjeh!')
+    }
+    failedToastr(){
+        this.toastr.error(" Neuspješno spremanje",'Greška!')
     }
 
 }
