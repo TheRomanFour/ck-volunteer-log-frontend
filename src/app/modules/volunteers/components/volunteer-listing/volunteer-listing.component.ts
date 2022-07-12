@@ -5,6 +5,7 @@ import { Volunteer } from "../../volunteers.model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { VolunteerModalComponent } from "./volunteer-modal/volunteer-modal.component";
 import {VolunteerDeleteModalComponent} from "./volunteer-delete-modal/volunteer-delete-modal.component";
+import {VolunteerEditModalComponent} from "./volunteer-edit-modal/volunteer-edit-modal.component";
 
 @Component({
     selector: 'app-volunteer-listing',
@@ -74,9 +75,20 @@ export class VolunteerListingComponent implements OnInit {
         });
     }
 
+    openVolunteerEdit(row: Volunteer) {
+        const modal = this.modal.open(VolunteerEditModalComponent);
+        //Send data to modal -> Modal needs to have class variable with same name
+        modal.componentInstance.volunteer_id = row._id;
+        modal.componentInstance.volunteer_firstname = row.firstname;
+        modal.componentInstance.volunteer_lastname = row.lastname ;
+        modal.componentInstance.volunteer_email = row.email;
+        modal.componentInstance.volunteer_phone = row.phone;
 
-    delete(){
-        console.log("obrisi")
+        modal.result.then(async res => {
+            if (!res.success)
+                return;
+
+            await this.fetchVolunteers();
+        });
     }
-
 }

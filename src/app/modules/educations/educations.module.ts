@@ -16,7 +16,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     declarations: [
         EducationModalComponent,
         EducationListingComponent,
-
     ],
     imports: [
         FormsModule,
@@ -29,16 +28,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         NgbModule,
         ReactiveFormsModule,
         Angular2PromiseButtonModule,
-
     ],
     exports: [
         EducationListingComponent
     ],
     providers: [
         EducationsService
-    ],
-    entryComponents: [
-        EducationModalComponent
     ]
 })
 export class EducationsModule {

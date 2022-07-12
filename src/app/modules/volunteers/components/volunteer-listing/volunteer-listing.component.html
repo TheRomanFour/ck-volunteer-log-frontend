@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-light " style="background-color:red; ">
     <div class="container-fluid">
         <h1 style="color: aliceblue;">Volonteri</h1>
@@ -41,6 +42,20 @@
             </ng-template>
         </ngx-datatable-column>
 
+        <ngx-datatable-column name="Uredi" prop="name">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
+                         let-row="row">
+
+                <!--send "row" as argument to the function openVolunteerDelete()-->
+                <button type="button" class="btn btn-success" style="background-color:green; border: green;" (click)="openVolunteerEdit(row);$event.stopPropagation()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+
+            </ng-template>
+        </ngx-datatable-column>
+
+
         <ngx-datatable-column name="Obriši" prop="name">
             <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
                          let-row="row">
@@ -53,6 +68,7 @@
 
             </ng-template>
         </ngx-datatable-column>
+
 
 
     </ngx-datatable>

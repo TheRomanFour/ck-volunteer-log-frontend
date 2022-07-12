@@ -14,12 +14,17 @@ import {
 } from "./components/volunteer-listing/volunteer-delete-modal/volunteer-delete-modal.component";
 
 import {ToastrModule} from 'ngx-toastr'
+import {
+    VolunteerEditModalComponent
+} from "./components/volunteer-listing/volunteer-edit-modal/volunteer-edit-modal.component";
 
 @NgModule({
     declarations: [
         VolunteerListingComponent,
         VolunteerModalComponent,
         VolunteerDeleteModalComponent,
+        VolunteerEditModalComponent,
+
     ],
     imports: [
         MatIconModule,
@@ -37,9 +42,6 @@ import {ToastrModule} from 'ngx-toastr'
     ],
     providers: [
         VolunteersService
-    ],
-    entryComponents: [
-        VolunteerModalComponent
     ]
 })
 export class VolunteersModule {

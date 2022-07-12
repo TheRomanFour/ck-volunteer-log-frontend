@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import {TrainingsService} from "../../../trainings.service";
 
 @Component({
@@ -9,11 +9,11 @@ import {TrainingsService} from "../../../trainings.service";
 })
 export class TrainingsModalComponent implements OnInit {
 
-    createForm: FormGroup = new FormGroup({
-        title: new FormControl("",Validators.nullValidator),
-        date: new FormControl("",Validators.nullValidator ),
-        hours: new FormControl("",Validators.nullValidator ),
-        description: new FormControl("",Validators.nullValidator),
+    createForm: UntypedFormGroup = new UntypedFormGroup({
+        title: new UntypedFormControl("",Validators.nullValidator),
+        date: new UntypedFormControl("",Validators.nullValidator ),
+        hours: new UntypedFormControl("",Validators.nullValidator ),
+        description: new UntypedFormControl("",Validators.nullValidator),
 
     });
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {VolunteersService} from "../../../volunteers.service";
+import {ToastrService} from 'ngx-toastr'
 
 
 @Component({
@@ -16,7 +17,8 @@ export class VolunteerDeleteModalComponent implements OnInit {
     volunteer_id: string = "";
 
     constructor(private aModal: NgbActiveModal,
-                private volunteerService: VolunteersService) {
+                private volunteerService: VolunteersService,
+                private toastr: ToastrService) {
     }
     ngOnInit(): void {
         console.log(this.volunteer_id);
@@ -33,14 +35,19 @@ export class VolunteerDeleteModalComponent implements OnInit {
             const result = await this.volunteerService.delete(volunteer_id);
             console.log("obrisan je kao");
             if (!result.success) {
-                //ngx-toastr error message
+                this.failedToastr()
                 return;
             }
-
-            //Show ngx-toastr success message
             this.aModal.close({ success: true });
+            this.savedToastr()
         })()
 
 
+    }
+    savedToastr(){
+        this.toastr.success("Volonter spremljen",'Uspjeh!')
+    }
+    failedToastr(){
+        this.toastr.error(" Neuspješno spremanje",'Greška!')
     }
 }

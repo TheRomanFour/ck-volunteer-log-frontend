@@ -19,8 +19,6 @@ import {
         TrainingsModalComponent,
         TrainingsListingComponent,
         TrainingsDeleteModalComponent,
-
-
     ],
     imports: [
         FormsModule,
@@ -33,16 +31,12 @@ import {
         NgbModule,
         ReactiveFormsModule,
         Angular2PromiseButtonModule,
-
     ],
     exports: [
         TrainingsListingComponent
     ],
     providers: [
         TrainingsService
-    ],
-    entryComponents: [
-        TrainingsModalComponent
     ]
 })
 export class TrainingsModule {
