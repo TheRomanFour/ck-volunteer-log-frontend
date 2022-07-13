@@ -17,6 +17,9 @@ import {ToastrModule} from 'ngx-toastr'
 import {
     VolunteerEditModalComponent
 } from "./components/volunteer-listing/volunteer-edit-modal/volunteer-edit-modal.component";
+import {
+    VolunteerInfoModalComponent
+} from "./components/volunteer-listing/volunteer-info-modal/volunteer-info-modal.component";
 
 @NgModule({
     declarations: [
@@ -24,6 +27,8 @@ import {
         VolunteerModalComponent,
         VolunteerDeleteModalComponent,
         VolunteerEditModalComponent,
+        VolunteerInfoModalComponent,
+
 
     ],
     imports: [

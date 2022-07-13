@@ -10,12 +10,14 @@
     </div>
 </nav>
 
-<div>
+<div class="tablica">
     <ngx-datatable
-            class="bootstrap fullscreen"
-            [rowHeight]="50"
+            class="material striped"
+            [headerHeight]="50"
+            [rowHeight]="'auto'"
             (activate)='onSelect($event)'
-            [rows]="rows">
+            [rows]="rows"
+    >
 
         <ngx-datatable-column name="Ime">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
