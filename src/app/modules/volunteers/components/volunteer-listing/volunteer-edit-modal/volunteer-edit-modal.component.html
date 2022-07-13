@@ -13,7 +13,7 @@
                 <label>Ime*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text"  formControlName="firstname"  placeholder="{{volunteer_firstname}}" >
+                <input class="form-control" type="text"  formControlName="firstname"  [(ngModel)]="volunteer_firstname" >
             </div>
             <div>
 
@@ -25,7 +25,7 @@
                 <label>Prezime*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text" formControlName="lastname" placeholder="{{volunteer_lastname}}">
+                <input class="form-control" type="text" formControlName="lastname" [(ngModel)]="volunteer_lastname">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                 <label>Email*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="email" formControlName="email" placeholder="{{volunteer_email}}">
+                <input class="form-control" type="email" formControlName="email" [(ngModel)]="volunteer_email">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 <label>Phone*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text" formControlName="phone" placeholder="{{volunteer_phone}}">
+                <input class="form-control" type="text" formControlName="phone" [(ngModel)]="volunteer_phone">
             </div>
         </div>
 
