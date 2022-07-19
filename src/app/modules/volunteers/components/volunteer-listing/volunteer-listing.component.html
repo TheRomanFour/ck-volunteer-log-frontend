@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-light " style="background-color:red; ">
+<nav class="navbar navbar-light " style="background-color:yellowgreen; ">
     <div class="container-fluid">
         <h1 style="color: aliceblue;">Volonteri</h1>
         <div class="d-flex">
@@ -31,11 +31,22 @@
             </ng-template>
         </ngx-datatable-column>
 
+        <ngx-datatable-column name="OIB">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.attributes.oib }}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+
+
         <ngx-datatable-column name="E-mail">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
                 {{ row.email }}
             </ng-template>
         </ngx-datatable-column>
+
+
 
 
         <ngx-datatable-column name="Broj">

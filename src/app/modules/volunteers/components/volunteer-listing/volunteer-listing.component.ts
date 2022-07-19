@@ -40,7 +40,7 @@ export class VolunteerListingComponent implements OnInit {
             return;
 
         this.rows = result.payload.items;
-        console.log(result);
+        console.log("rezultat" ,this.rows);
     }
 
     onSubmit(){
@@ -91,6 +91,7 @@ export class VolunteerListingComponent implements OnInit {
         modal.componentInstance.volunteer_id = row._id;
         modal.componentInstance.volunteer_firstname = row.firstname;
         modal.componentInstance.volunteer_lastname = row.lastname ;
+        modal.componentInstance.volunteer_oib = row.attributes.oib;
         modal.componentInstance.volunteer_email = row.email;
         modal.componentInstance.volunteer_phone = row.phone;
 

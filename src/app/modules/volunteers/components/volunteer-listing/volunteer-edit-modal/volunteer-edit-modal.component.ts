@@ -15,6 +15,7 @@ export class VolunteerEditModalComponent implements OnInit {
     editForm: UntypedFormGroup = new UntypedFormGroup({
         firstname: new UntypedFormControl("", Validators.required),
         lastname: new UntypedFormControl("", Validators.required),
+        oib: new UntypedFormControl("", Validators.required),
         email: new UntypedFormControl("", Validators.required),
         phone: new UntypedFormControl("", Validators.nullValidator)
     });
@@ -22,6 +23,7 @@ export class VolunteerEditModalComponent implements OnInit {
     volunteer_id: string = "";
     volunteer_firstname: string = "";
     volunteer_lastname: string = "";
+    volunteer_oib : string = "";
     volunteer_email: string = "";
     volunteer_phone: string = "";
 

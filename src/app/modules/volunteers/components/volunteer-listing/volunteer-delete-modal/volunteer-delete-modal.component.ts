@@ -33,7 +33,6 @@ export class VolunteerDeleteModalComponent implements OnInit {
 
         this.promiseBtn = (async () => {
             const result = await this.volunteerService.delete(volunteer_id);
-            console.log("obrisan je kao");
             if (!result.success) {
                 this.failedToastr()
                 return;
@@ -45,9 +44,9 @@ export class VolunteerDeleteModalComponent implements OnInit {
 
     }
     savedToastr(){
-        this.toastr.success("Volonter spremljen",'Uspjeh!')
+        this.toastr.success("Volonter  je izbrisan ",'Uspjeh!')
     }
     failedToastr(){
-        this.toastr.error(" Neuspješno spremanje",'Greška!')
+        this.toastr.error(" Neuspješno brisanje",'Greška!')
     }
 }

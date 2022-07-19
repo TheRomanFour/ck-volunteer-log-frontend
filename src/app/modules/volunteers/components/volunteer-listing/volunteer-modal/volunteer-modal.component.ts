@@ -13,6 +13,7 @@ export class VolunteerModalComponent implements OnInit {
     createForm: UntypedFormGroup = new UntypedFormGroup({
         firstname: new UntypedFormControl("", Validators.required),
         lastname: new UntypedFormControl("", Validators.required),
+        oib: new UntypedFormControl("", Validators.required),
         email: new UntypedFormControl("", Validators.required),
         phone: new UntypedFormControl("", Validators.nullValidator)
     });
@@ -31,27 +32,67 @@ export class VolunteerModalComponent implements OnInit {
         this.aModal.close({ success: false });
     }
 
-    save() {
-        this.promiseBtn = (async () => {
-            const data = this.createForm.value;
-            const result = await this.volunteerService.create(data);
-            if (!result.success) {
-                //ngx-toastr error message
-               this.failedToastr()
-                return;
+    isOibValid(input:string) {
+        const oib = input.toString();
+
+        if (oib.match(/\d{11}/) === null) {
+            return false;
+        }
+
+        let calculated = 10;
+
+        for (const digit of oib.substring(0, 10)) {
+            calculated += parseInt(digit);
+
+            calculated %= 10;
+
+            if (calculated === 0) {
+                calculated = 10;
             }
 
-            //Show ngx-toastr success message
-            this.savedToastr();
-            this.aModal.close({ success: true });
+            calculated *= 2;
 
-        })()
+            calculated %= 11;
+        }
+
+        var check = 11 - calculated;
+
+        if (check === 10) {
+            check = 0;
+        }
+
+        return check === parseInt(oib[10]);
+    }
+
+    save() {
+        const data = this.createForm.value;
+        if (this.isOibValid(data.oib)){
+            this.promiseBtn = (async () => {
+                const result = await this.volunteerService.create(data);
+                if (!result.success) {
+                    //ngx-toastr error message
+                    this.failedToastr()
+                    return;
+                }
+                //Show ngx-toastr success message
+                this.savedToastr();
+                this.aModal.close({ success: true });
+
+            })()
+        }
+        else{
+            this.failedOib()
+        }
+
     }
     savedToastr(){
         this.toastr.success("Volonter spremljen",'Uspjeh!')
     }
     failedToastr(){
         this.toastr.error(" Neuspješno spremanje",'Greška!')
+    }
+    failedOib(){
+        this.toastr.error(" Netočan OIB",'Greška!')
     }
 
 }
