@@ -20,6 +20,7 @@ import {
 import {
     VolunteerInfoModalComponent
 } from "./components/volunteer-listing/volunteer-info-modal/volunteer-info-modal.component";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
     declarations: [
@@ -40,7 +41,8 @@ import {
         NgbModule,
         ReactiveFormsModule,
         ToastrModule.forRoot(),
-        Angular2PromiseButtonModule
+        Angular2PromiseButtonModule,
+        MatInputModule
     ],
     exports: [
         VolunteerListingComponent

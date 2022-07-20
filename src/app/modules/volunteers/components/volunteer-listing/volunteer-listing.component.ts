@@ -24,8 +24,6 @@ export class VolunteerListingComponent implements OnInit {
 
     rows: Volunteer[] = [];
 
-    test = "Test";
-
     constructor(private volunteers: VolunteersService,
                 private modal: NgbModal) {
     }
@@ -117,5 +115,9 @@ export class VolunteerListingComponent implements OnInit {
 
             await this.fetchVolunteers();
         });
+    }
+    Filter() {
+//        const lowerValue = filterValue.toLowerCase();
+//        this.filteredList = this.items.filter(item => item.name.toLowerCase().indexOf(lowerValue) !== -1 || !lowerValue);
     }
 }
