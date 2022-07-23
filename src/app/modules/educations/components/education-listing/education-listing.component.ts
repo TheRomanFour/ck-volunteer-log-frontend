@@ -66,4 +66,8 @@ export class EducationListingComponent implements OnInit {
       await this.fetchEducations();
     });
   }
+  Filter() {
+//        const lowerValue = filterValue.toLowerCase();
+//        this.filteredList = this.items.filter(item => item.name.toLowerCase().indexOf(lowerValue) !== -1 || !lowerValue);
+  }
 }

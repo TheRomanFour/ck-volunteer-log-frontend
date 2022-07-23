@@ -4,7 +4,6 @@ import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms
 import { VolunteersService } from "../../../volunteers.service";
 import {ToastrService} from 'ngx-toastr'
 
-
 @Component({
     selector: "volunteer-modal-wizard",
     templateUrl: "./volunteer-edit-modal.component.html",
@@ -42,6 +41,8 @@ export class VolunteerEditModalComponent implements OnInit {
     close() {
         this.aModal.close({ success: false });
     }
+
+
 
     update(volunteer_id:string) {
         this.promiseBtn = (async () => {

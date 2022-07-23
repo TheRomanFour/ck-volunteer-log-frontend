@@ -1,12 +1,12 @@
 
-<nav class="navbar navbar-light " style="background-color:yellowgreen; ">
+<nav class="navbar navbar-light " style="background-color:yellowgreen; border-radius: 12px;">
     <div class="container-fluid">
         <h1 style="color: aliceblue;">Volonteri</h1>
         <div class="d-flex">
             <mat-form-field >
                 <input (keyup) = "Filter()" matInput placeholder="Pretraga volontera" style="position: center;">
             </mat-form-field>
-            <button id="dodajvolontera" (click)="openVolunteerWizard()" type="button" class="btn btn-success" >
+            <button id="dodajvolontera" (click)="openVolunteerWizard()" type="button" class="btn btn-success" style = "margin-left: 30px;" >
                 Dodaj volontera
             </button>
         </div>

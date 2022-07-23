@@ -10,7 +10,7 @@ import {EducationsService} from "./educations.service";
 import {BrowserModule} from "@angular/platform-browser";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
     declarations: [
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         EducationListingComponent,
     ],
     imports: [
+        MatInputModule,
         FormsModule,
         ReactiveFormsModule,
         BrowserModule,

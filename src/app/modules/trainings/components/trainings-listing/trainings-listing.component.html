@@ -2,7 +2,10 @@
     <div class="container-fluid">
         <h1 style="color: aliceblue;">Vježbe</h1>
         <div class="d-flex">
-            <button (click)="openTrainingWizard()" type="button" class="btn " style="background-color: #cc7000; color : white" >
+            <mat-form-field >
+                <input (keyup) = "Filter()" matInput placeholder="Pretraga volontera" style="position: center;">
+            </mat-form-field>
+            <button (click)="openTrainingWizard()" type="button" class="btn " style="background-color: #cc7000; color : white; margin-left: 30px;" >
                 Dodaj vježbu
             </button>
         </div>

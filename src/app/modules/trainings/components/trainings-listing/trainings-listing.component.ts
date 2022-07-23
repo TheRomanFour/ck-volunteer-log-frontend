@@ -68,4 +68,8 @@ export class TrainingsListingComponent implements OnInit {
       await this.fetchTrainings();
     });
   }
+  Filter() {
+//        const lowerValue = filterValue.toLowerCase();
+//        this.filteredList = this.items.filter(item => item.name.toLowerCase().indexOf(lowerValue) !== -1 || !lowerValue);
+  }
 }

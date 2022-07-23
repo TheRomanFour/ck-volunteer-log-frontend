@@ -12,6 +12,7 @@ import {TrainingsService} from "./trainings.service";
 import {
     TrainingsDeleteModalComponent
 } from "./components/trainings-listing/trainings-delete-modal/trainings-delete-modal.component";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {
         TrainingsDeleteModalComponent,
     ],
     imports: [
+        MatInputModule,
         FormsModule,
         ReactiveFormsModule,
         BrowserModule,
