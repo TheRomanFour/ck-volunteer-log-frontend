@@ -43,18 +43,13 @@ export class VolunteerModalComponent implements OnInit {
 
         for (const digit of oib.substring(0, 10)) {
             calculated += parseInt(digit);
-
             calculated %= 10;
-
             if (calculated === 0) {
                 calculated = 10;
             }
-
             calculated *= 2;
-
             calculated %= 11;
         }
-
         var check = 11 - calculated;
 
         if (check === 10) {

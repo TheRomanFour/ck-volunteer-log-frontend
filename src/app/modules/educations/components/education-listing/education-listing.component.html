@@ -3,7 +3,7 @@
         <h1 style="color: aliceblue;">Edukacije</h1>
         <div class="d-flex">
             <mat-form-field >
-                <input (keyup) = "Filter()" matInput placeholder="Pretraga volontera" style="position: center;">
+                <input (keyup) = "Filter()" matInput placeholder="Pretraga edukacija" style="position: center;">
             </mat-form-field>
             <button (click)="openEducationWizard()" type="button" class="btn btn-success" style = "background-color: #306dcf; margin-left: 30px;">
                 Dodaj edukaciju
@@ -21,25 +21,27 @@
 
         <ngx-datatable-column name="Naziv">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.naziv }}
+                {{ row.name }}
             </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="Datum">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.date }}
+                {{ row.attributes.date }}
+
             </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="Vrijeme trajanja">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.time }}
+                {{ row.attributes.length }}
+
             </ng-template>
         </ngx-datatable-column>
 
         <ngx-datatable-column name="Opis">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.description }}
+                {{ row.attributes.description }}
             </ng-template>
         </ngx-datatable-column>
 

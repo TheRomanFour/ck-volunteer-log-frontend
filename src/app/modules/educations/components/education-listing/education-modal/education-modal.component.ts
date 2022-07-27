@@ -12,7 +12,7 @@ export class EducationModalComponent implements OnInit {
     createForm: UntypedFormGroup = new UntypedFormGroup({
         title: new UntypedFormControl("",Validators.nullValidator),
         date: new UntypedFormControl("",Validators.nullValidator ),
-        hours: new UntypedFormControl("",Validators.nullValidator ),
+        length: new UntypedFormControl("",Validators.nullValidator ),
         description: new UntypedFormControl("",Validators.nullValidator),
 
     });

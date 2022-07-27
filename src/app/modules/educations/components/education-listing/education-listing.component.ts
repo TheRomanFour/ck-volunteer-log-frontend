@@ -5,6 +5,7 @@ import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Education} from "../../educations.model";
 import {EducationModalComponent} from "./education-modal/education-modal.component";
 import {EducationDeleteModalComponent} from "./education-delete-modal/education-delete-modal.component";
+import {EducationsService} from "../../educations.service";
 @Component({
   selector: 'app-education-listing',
   templateUrl: './education-listing.component.html',
@@ -21,7 +22,7 @@ export class EducationListingComponent implements OnInit {
 
   rows: Education[] = [];
 
-  constructor(private educations: VolunteersService, private modal: NgbModal) { }
+  constructor(private educations: EducationsService, private modal: NgbModal) { }
 
 
   async ngOnInit(): Promise<void> {
@@ -35,7 +36,7 @@ export class EducationListingComponent implements OnInit {
 
     // @ts-ignore
     this.rows = result.payload.items;
-    console.log(result);
+    console.log("edukacija", result);
 
 
   }

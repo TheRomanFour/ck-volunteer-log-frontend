@@ -6,15 +6,19 @@ export type Education = {
 
     salutation: string;
     title: string;
+    firstname: string;
+    lastname: string;
     name: string;
-    hours: number;
-    description: string;
+
     phone: string;
     email: string;
     type: string;
     addresses: Array<Address>;
     attributes: any;
     media: Array<EntityMedia>;
+
+    _id?: string;
+
 
 }
 
