@@ -17,10 +17,11 @@ import {ToastrModule} from 'ngx-toastr'
 import {
     VolunteerEditModalComponent
 } from "./components/volunteer-listing/volunteer-edit-modal/volunteer-edit-modal.component";
-import {
-    VolunteerInfoModalComponent
-} from "./components/volunteer-listing/volunteer-info-modal/volunteer-info-modal.component";
 import {MatInputModule} from "@angular/material/input";
+import { VolunteerDetailsComponent } from "./components/details/volunteer-details.component";
+import {
+    VolunteerDetailsBasicInfoComponent
+} from "./components/details/basic-info/volunteer-details-basic-info.component";
 
 @NgModule({
     declarations: [
@@ -28,9 +29,8 @@ import {MatInputModule} from "@angular/material/input";
         VolunteerModalComponent,
         VolunteerDeleteModalComponent,
         VolunteerEditModalComponent,
-        VolunteerInfoModalComponent,
-
-
+        VolunteerDetailsComponent,
+        VolunteerDetailsBasicInfoComponent
     ],
     imports: [
         MatIconModule,

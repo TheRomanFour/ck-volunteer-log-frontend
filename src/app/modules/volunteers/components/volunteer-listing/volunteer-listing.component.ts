@@ -4,9 +4,9 @@ import { IFetchOptions } from "../../../../../interfaces/IFetchOptions";
 import { Volunteer } from "../../volunteers.model";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { VolunteerModalComponent } from "./volunteer-modal/volunteer-modal.component";
-import {VolunteerDeleteModalComponent} from "./volunteer-delete-modal/volunteer-delete-modal.component";
-import {VolunteerEditModalComponent} from "./volunteer-edit-modal/volunteer-edit-modal.component";
-import {VolunteerInfoModalComponent} from "./volunteer-info-modal/volunteer-info-modal.component";
+import { VolunteerDeleteModalComponent } from "./volunteer-delete-modal/volunteer-delete-modal.component";
+import { VolunteerEditModalComponent } from "./volunteer-edit-modal/volunteer-edit-modal.component";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'app-volunteer-listing',
@@ -25,7 +25,8 @@ export class VolunteerListingComponent implements OnInit {
     rows: Volunteer[] = [];
 
     constructor(private volunteers: VolunteersService,
-                private modal: NgbModal) {
+                private modal: NgbModal,
+                private router: Router) {
     }
 
     async ngOnInit(): Promise<void> {
@@ -38,10 +39,10 @@ export class VolunteerListingComponent implements OnInit {
             return;
 
         this.rows = result.payload.items;
-        console.log("rezultat" ,this.rows);
+        console.log("rezultat", this.rows);
     }
 
-    onSubmit(){
+    onSubmit() {
 
     }
 
@@ -55,19 +56,11 @@ export class VolunteerListingComponent implements OnInit {
         });
     }
 
-    onSelect(event: Event) {
+    onSelect(event: any) {
         if (event.type !== "click")
             return;
-        const modal = this.modal.open(VolunteerInfoModalComponent);
-        /*
-        modal.componentInstance.volunteer_id = row._id;
-        modal.componentInstance.volunteer_firstname = row.firstname;
-        modal.componentInstance.volunteer_lastname = row.lastname ;
-        modal.componentInstance.volunteer_email = row.email;
-        modal.componentInstance.volunteer_phone = row.phone;
-         */
 
-
+        return this.router.navigate([`volunteers/details/${event.row._id}`]);
     }
 
     //Here you need to pass reference from HTML
@@ -88,7 +81,7 @@ export class VolunteerListingComponent implements OnInit {
         //Send data to modal -> Modal needs to have class variable with same name
         modal.componentInstance.volunteer_id = row._id;
         modal.componentInstance.volunteer_firstname = row.firstname;
-        modal.componentInstance.volunteer_lastname = row.lastname ;
+        modal.componentInstance.volunteer_lastname = row.lastname;
         modal.componentInstance.volunteer_oib = row.attributes.oib;
         modal.componentInstance.volunteer_email = row.email;
         modal.componentInstance.volunteer_phone = row.phone;
@@ -100,12 +93,13 @@ export class VolunteerListingComponent implements OnInit {
             await this.fetchVolunteers();
         });
     }
+
     openVolunteerInfo(row: Volunteer) {
         const modal = this.modal.open(VolunteerEditModalComponent);
         //Send data to modal -> Modal needs to have class variable with same name
         modal.componentInstance.volunteer_id = row._id;
         modal.componentInstance.volunteer_firstname = row.firstname;
-        modal.componentInstance.volunteer_lastname = row.lastname ;
+        modal.componentInstance.volunteer_lastname = row.lastname;
         modal.componentInstance.volunteer_email = row.email;
         modal.componentInstance.volunteer_phone = row.phone;
 
@@ -116,6 +110,7 @@ export class VolunteerListingComponent implements OnInit {
             await this.fetchVolunteers();
         });
     }
+
     Filter() {
 //        const lowerValue = filterValue.toLowerCase();
 //        this.filteredList = this.items.filter(item => item.name.toLowerCase().indexOf(lowerValue) !== -1 || !lowerValue);

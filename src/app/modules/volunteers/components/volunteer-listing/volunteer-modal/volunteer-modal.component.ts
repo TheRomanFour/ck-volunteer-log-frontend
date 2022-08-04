@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { VolunteersService } from "../../../volunteers.service";
-import {ToastrService} from 'ngx-toastr'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: "volunteer-modal-wizard",
@@ -32,7 +32,7 @@ export class VolunteerModalComponent implements OnInit {
         this.aModal.close({ success: false });
     }
 
-    isOibValid(input:string) {
+    isOibValid(input: string) {
         const oib = input.toString();
 
         if (oib.match(/\d{11}/) === null) {
@@ -61,33 +61,35 @@ export class VolunteerModalComponent implements OnInit {
 
     save() {
         const data = this.createForm.value;
-        if (this.isOibValid(data.oib)){
-            this.promiseBtn = (async () => {
-                const result = await this.volunteerService.create(data);
-                if (!result.success) {
-                    //ngx-toastr error message
-                    this.failedToastr()
-                    return;
-                }
-                //Show ngx-toastr success message
-                this.savedToastr();
-                this.aModal.close({ success: true });
-
-            })()
-        }
-        else{
-            this.failedOib()
+        if (!this.isOibValid(data.oib)) {
+            this.failedOib();
+            return;
         }
 
+        this.promiseBtn = (async () => {
+            const result = await this.volunteerService.create(data);
+            if (!result.success) {
+                //ngx-toastr error message
+                this.failedToastr();
+                return;
+            }
+            //Show ngx-toastr success message
+            this.savedToastr();
+            this.aModal.close({ success: true });
+
+        })();
     }
-    savedToastr(){
-        this.toastr.success("Volonter spremljen",'Uspjeh!')
+
+    savedToastr() {
+        this.toastr.success("Volonter spremljen", 'Uspjeh!');
     }
-    failedToastr(){
-        this.toastr.error(" Neuspješno spremanje",'Greška!')
+
+    failedToastr() {
+        this.toastr.error(" Neuspješno spremanje", 'Greška!');
     }
-    failedOib(){
-        this.toastr.error(" Netočan OIB",'Greška!')
+
+    failedOib() {
+        this.toastr.error(" Netočan OIB", 'Greška!');
     }
 
 }

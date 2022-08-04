@@ -45,6 +45,8 @@ export class VolunteerEditModalComponent implements OnInit {
 
 
     update(volunteer_id:string) {
+        //TODO Add validation for OIB
+
         this.promiseBtn = (async () => {
             const data = this.editForm.value;
             const result = await this.volunteerService.update(volunteer_id,data );
