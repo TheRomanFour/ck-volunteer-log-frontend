@@ -41,7 +41,6 @@ export class VolunteerEditModalComponent implements OnInit {
     close() {
         this.aModal.close({ success: false });
     }
-
     isOibValid(input: string) {
         const oib = input.toString();
 
