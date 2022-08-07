@@ -1,6 +1,15 @@
-<div class="d-flex">
-    <a routerLinkActive="active" [routerLink]="[ '/info' ]">Basic info</a>
-    <a routerLinkActive="active" [routerLink]="[ '/educations' ]">Educations</a>
-</div>
+<header>
+    <nav>
+        <ul class = "nav_links" >
+            <li> <a routerLinkActive="active" [routerLink]="[ '/info' ]">Osnovni podaci</a> </li>
+            <li> <a routerLinkActive="active" [routerLink]="[ '/educations' ]">Edukacije</a></li>
+            <li> <a routerLinkActive="active" [routerLink]="[ '/tranings' ]">Vježbe</a></li>
+
+
+        </ul>
+    </nav>
+</header>
+
 
 <router-outlet></router-outlet>
+

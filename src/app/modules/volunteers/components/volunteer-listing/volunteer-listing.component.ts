@@ -39,7 +39,6 @@ export class VolunteerListingComponent implements OnInit {
             return;
 
         this.rows = result.payload.items;
-        console.log("rezultat", this.rows);
     }
 
     onSubmit() {

@@ -10,10 +10,12 @@ import {EducationsService} from "../../../educations.service";
 export class EducationModalComponent implements OnInit {
 
     createForm: UntypedFormGroup = new UntypedFormGroup({
-        title: new UntypedFormControl("",Validators.nullValidator),
-        date: new UntypedFormControl("",Validators.nullValidator ),
-        length: new UntypedFormControl("",Validators.nullValidator ),
-        description: new UntypedFormControl("",Validators.nullValidator),
+        name: new UntypedFormControl("",Validators.nullValidator),
+        date_from: new UntypedFormControl("",Validators.nullValidator ),
+        date_to: new UntypedFormControl("",Validators.nullValidator ),
+        location: new UntypedFormControl("",Validators.nullValidator ),
+        start_time: new UntypedFormControl("",Validators.nullValidator),
+        maximum_participants: new UntypedFormControl("",Validators.nullValidator),
 
     });
 

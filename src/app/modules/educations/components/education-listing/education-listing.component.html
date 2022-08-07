@@ -1,11 +1,12 @@
-<nav class="navbar navbar-light " style="background-color:lightskyblue; ">
+<nav class="navbar navbar-light " style="background-color:#e2bd4f; ">
     <div class="container-fluid">
-        <h1 style="color: aliceblue;">Edukacije</h1>
+        <h1 style="color: black;"> <mat-icon style = "font-size: 30px; margin-right: 15px;"> book</mat-icon>Edukacije</h1>
         <div class="d-flex">
             <mat-form-field >
-                <input (keyup) = "Filter()" matInput placeholder="Pretraga edukacija" style="position: center;">
+                <input (keyup) = "Filter()" matInput placeholder="Pretraga edukacija" style="position: center; font-size: 17px;">
+                <mat-icon matPrefix matPrefix style = "margin-right: 10px; " >search</mat-icon>
             </mat-form-field>
-            <button (click)="openEducationWizard()" type="button" class="btn btn-success" style = "background-color: #306dcf; margin-left: 30px;">
+            <button (click)="openEducationWizard()" type="button" class="btn " style = "background-color: white; margin-left: 15px; border-radius: 10px;">
                 Dodaj edukaciju
             </button>
         </div>
@@ -19,29 +20,55 @@
             (activate)='onSelect($event)'
             [rows]="rows">
 
-        <ngx-datatable-column name="Naziv">
+        <ngx-datatable-column name="Ime edukacije">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
                 {{ row.name }}
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Datum">
+        <ngx-datatable-column name="Datum početka">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.attributes.date }}
+                {{ row.date_from }}
 
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Vrijeme trajanja">
+        <ngx-datatable-column name="Datum završetka">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.attributes.length }}
+                {{ row.date_to }}
 
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Opis">
+        <ngx-datatable-column name="Lokacija">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.attributes.description }}
+                {{ row.location }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Vrijeme početka">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.start_time }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Maksimum sudionika">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.maximum_participants }}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+        <ngx-datatable-column name="Uredi" prop="name">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
+                         let-row="row">
+
+                <!--send "row" as argument to the function openVolunteerDelete()-->
+                <button type="button" class="btn btn-success" style="background-color:green; border: green;" (click)="openEducationDelete();$event.stopPropagation()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+
             </ng-template>
         </ngx-datatable-column>
 

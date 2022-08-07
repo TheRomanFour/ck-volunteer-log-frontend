@@ -1,12 +1,13 @@
 
-<nav class="navbar navbar-light " style="background-color:yellowgreen; border-radius: 12px;">
+<nav class="navbar navbar-light " style="background-color:#adce9d; border-radius: 12px;">
     <div class="container-fluid">
-        <h1 style="color: aliceblue;">Volonteri</h1>
+        <h1 style="color: black;"> <mat-icon style = "font-size: 30px; margin-right: 10px;  ">person</mat-icon> Volonteri</h1>
         <div class="d-flex">
             <mat-form-field >
-                <input (keyup) = "Filter()" matInput placeholder="Pretraga volontera" style="position: center;">
+                <input (keyup) = "Filter()" matInput placeholder="Pretraga volontera" style="position: center; font-size: 17px;">
+                <mat-icon matPrefix style = "margin-right: 10px; ">search</mat-icon>
             </mat-form-field>
-            <button id="dodajvolontera" (click)="openVolunteerWizard()" type="button" class="btn btn-success" style = "margin-left: 30px;" >
+            <button id="dodajvolontera" (click)="openVolunteerWizard()" type="button" class="btn" style = "margin-left: 15px; background-color: white; border-radius: 10px;" >
                 Dodaj volontera
             </button>
         </div>
