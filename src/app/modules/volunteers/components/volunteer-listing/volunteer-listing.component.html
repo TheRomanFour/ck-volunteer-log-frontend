@@ -41,6 +41,18 @@
             </ng-template>
         </ngx-datatable-column>
 
+        <ngx-datatable-column name="Adresa">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.attributes.address }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Mjesto rođenja">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.attributes.place_of_birth }}
+            </ng-template>
+        </ngx-datatable-column>
+
 
 
 
@@ -58,6 +70,8 @@
                 {{ row.phone }}
             </ng-template>
         </ngx-datatable-column>
+
+
 
         <ngx-datatable-column name="Uredi" prop="name">
             <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"

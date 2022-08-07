@@ -14,8 +14,11 @@ export class VolunteerModalComponent implements OnInit {
         firstname: new UntypedFormControl("", Validators.required),
         lastname: new UntypedFormControl("", Validators.required),
         oib: new UntypedFormControl("", Validators.required),
-        email: new UntypedFormControl("", Validators.required),
-        phone: new UntypedFormControl("", Validators.nullValidator)
+        address: new UntypedFormControl("", Validators.required),
+        place_of_birth: new UntypedFormControl("", Validators.required),
+        email: new UntypedFormControl("", Validators.nullValidator),
+        phone: new UntypedFormControl("", Validators.nullValidator),
+        skills: new UntypedFormControl("", Validators.nullValidator),
     });
 
     promiseBtn: any;
