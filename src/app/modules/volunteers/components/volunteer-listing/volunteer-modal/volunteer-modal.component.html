@@ -38,12 +38,58 @@
 
         <div class="form-group row">
             <div class="col-3 d-flex align-items-center">
-                <label>Adresa*:</label>
+                <label>Datum rođenja*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text"   formControlName="address">
+                <input class="form-control" type="date"  name = "date"  placeholder="dd-mm-yyyy" formControlName="date_of_birth">
             </div>
         </div>
+
+        <div class="form-group row">
+            <div class="col-3 d-flex align-items-center">
+                <label>Ulica*:</label>
+            </div>
+            <div class="col-9">
+                <input class="form-control" type="text"   formControlName="street">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 d-flex align-items-center">
+                <label>Ulični broj*:</label>
+            </div>
+            <div class="col-9">
+                <input class="form-control" type="text"   formControlName="streetNumber">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-3 d-flex align-items-center">
+                <label>Grad*:</label>
+            </div>
+            <div class="col-9">
+                <input class="form-control" type="text"   formControlName="city">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 d-flex align-items-center">
+                <label>Poštanski broj*:</label>
+            </div>
+            <div class="col-9">
+                <input class="form-control" type="text"   formControlName="postcode">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 d-flex align-items-center">
+                <label>Grad*:</label>
+            </div>
+            <div class="col-9">
+                <input class="form-control" type="text"   formControlName="city">
+            </div>
+        </div>
+
+
         <div class="form-group row">
             <div class="col-3 d-flex align-items-center">
                 <label>Mjesto rođenja*:</label>
@@ -52,6 +98,8 @@
                 <input class="form-control" type="text"   formControlName="place_of_birth">
             </div>
         </div>
+
+
 
         <div class="form-group row">
             <div class="col-3 d-flex align-items-center">
