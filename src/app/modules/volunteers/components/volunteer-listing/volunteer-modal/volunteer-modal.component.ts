@@ -73,6 +73,13 @@ export class VolunteerModalComponent implements OnInit {
             return;
         }
 
+        data.address = {
+            street: data.street,
+            streetNumber: data.streetNumber,
+            postcode: data.postcode,
+            city: data.city
+        };
+
         this.promiseBtn = (async () => {
             const result = await this.volunteerService.create(data);
             if (!result.success) {
