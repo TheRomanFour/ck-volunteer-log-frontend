@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {IFetchOptions} from "../../../../../interfaces/IFetchOptions";
-import {VolunteersService} from "../../../volunteers/volunteers.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Education} from "../../educations.model";
 import {EducationModalComponent} from "./education-modal/education-modal.component";
 import {EducationDeleteModalComponent} from "./education-delete-modal/education-delete-modal.component";
 import {EducationsService} from "../../educations.service";
+import {EducationEditModalComponent} from "./education-edit-modal/education-edit-modal.component";
 @Component({
   selector: 'app-education-listing',
   templateUrl: './education-listing.component.html',
@@ -22,11 +22,15 @@ export class EducationListingComponent implements OnInit {
 
   rows: Education[] = [];
 
+
+
   constructor(private educations: EducationsService, private modal: NgbModal) { }
 
 
   async ngOnInit(): Promise<void> {
+
     await this.fetchEducations();
+    console.log(this.rows)
   }
 
   private async fetchEducations() {
@@ -60,6 +64,24 @@ export class EducationListingComponent implements OnInit {
 
   openEducationDelete() {
     const modal = this.modal.open(EducationDeleteModalComponent);
+    modal.result.then(async res => {
+      if (!res.success)
+        return;
+
+      await this.fetchEducations();
+    });
+  }
+
+  openEducationEdit(row: Education) {
+    const modal = this.modal.open(EducationEditModalComponent);
+    //Send data to modal -> Modal needs to have class variable with same name
+    modal.componentInstance.education_name = row.name;
+    modal.componentInstance.education_date_from = row.date_from;
+    modal.componentInstance.education_date_to = row.date_to;
+    modal.componentInstance.education_location = row.location;
+    modal.componentInstance.education_start_time = row.start_time;
+    modal.componentInstance.education_maximum_participants = row.maximum_participants;
+
     modal.result.then(async res => {
       if (!res.success)
         return;

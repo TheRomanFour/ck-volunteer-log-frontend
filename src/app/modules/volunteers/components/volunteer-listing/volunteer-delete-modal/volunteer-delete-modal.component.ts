@@ -21,7 +21,7 @@ export class VolunteerDeleteModalComponent implements OnInit {
                 private toastr: ToastrService) {
     }
     ngOnInit(): void {
-        console.log(this.volunteer_id);
+
     }
 
     promiseBtn: any;

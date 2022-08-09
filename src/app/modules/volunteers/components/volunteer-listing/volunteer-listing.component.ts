@@ -89,7 +89,6 @@ export class VolunteerListingComponent implements OnInit {
         modal.componentInstance.volunteer_city = row.addresses[0].city;
         modal.componentInstance.volunteer_postcode = row.addresses[0].postcode;
         modal.componentInstance.volunteer_place_of_birth = row.attributes.place_of_birth;
-
         modal.componentInstance.volunteer_email = row.email;
         modal.componentInstance.volunteer_phone = row.phone;
         modal.componentInstance.volunteer_skills = row.attributes.skills;

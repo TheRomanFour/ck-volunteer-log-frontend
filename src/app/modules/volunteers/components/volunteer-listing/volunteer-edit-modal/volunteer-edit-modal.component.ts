@@ -100,7 +100,6 @@ export class VolunteerEditModalComponent implements OnInit {
 
             //Show ngx-toastr success message
             this.savedToastr();
-            console.log("Update?")
             this.aModal.close({ success: true });
 
         })()

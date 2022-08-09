@@ -11,11 +11,21 @@ import {BrowserModule} from "@angular/platform-browser";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from "@angular/material/input";
+import {
+    EducationDeleteModalComponent
+} from "./components/education-listing/education-delete-modal/education-delete-modal.component";
+import {
+    EducationEditModalComponent
+} from "./components/education-listing/education-edit-modal/education-edit-modal.component";
 
 @NgModule({
     declarations: [
         EducationModalComponent,
         EducationListingComponent,
+        EducationDeleteModalComponent,
+        EducationEditModalComponent,
+
+
     ],
     imports: [
         MatInputModule,

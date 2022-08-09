@@ -16,7 +16,7 @@ export class EducationsService {
     }
 
     fetch(page: number, pageSize: number, options: IFetchOptions): Promise<FetchResult<Education>> {
-        return this.juice.postNoHeaders(`/api/educations/${page}/${pageSize}`, options)
+        return this.juice.postNoHeaders(`/api/education/${page}/${pageSize}`, options)
     }
 
     create(data: any): Promise<Result<string>> {
