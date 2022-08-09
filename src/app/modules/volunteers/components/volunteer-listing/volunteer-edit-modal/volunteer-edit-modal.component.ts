@@ -15,16 +15,30 @@ export class VolunteerEditModalComponent implements OnInit {
         firstname: new UntypedFormControl("", Validators.required),
         lastname: new UntypedFormControl("", Validators.required),
         oib: new UntypedFormControl("", Validators.required),
-        email: new UntypedFormControl("", Validators.required),
-        phone: new UntypedFormControl("", Validators.nullValidator)
+        street: new UntypedFormControl("", Validators.required),
+        streetNumber: new UntypedFormControl("", Validators.required),
+        postcode: new UntypedFormControl("", Validators.required),
+        city: new UntypedFormControl("", Validators.required),
+        date_of_birth: new UntypedFormControl("", Validators.required),
+        place_of_birth: new UntypedFormControl("", Validators.required),
+        email: new UntypedFormControl("", Validators.nullValidator),
+        phone: new UntypedFormControl("", Validators.nullValidator),
+        skills: new UntypedFormControl("", Validators.nullValidator),
     });
 
     volunteer_id: string = "";
     volunteer_firstname: string = "";
     volunteer_lastname: string = "";
     volunteer_oib : string = "";
+    volunteer_date_of_birth?: Date = undefined;
+    volunteer_street: string = "";
+    volunteer_street_number: string = "";
+    volunteer_city: string = "";
+    volunteer_postcode: string = "";
+    volunteer_place_of_birth: string = "";
     volunteer_email: string = "";
     volunteer_phone: string = "";
+    volunteer_skills: string = "";
 
 
     promiseBtn: any;
