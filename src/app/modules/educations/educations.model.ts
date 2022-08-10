@@ -10,6 +10,8 @@ export type Education = {
     start_time?: string; //09:00
     maximum_participants: number;
 
+    _id?: string;
+
 
 }
 

@@ -80,7 +80,7 @@
                          let-row="row">
 
                 <button type="button" class="btn btn-danger" style="background-color:red; border: red;"
-                        (click)="openEducationDelete()" >
+                        (click)="openEducationDelete(row);$event.stopPropagation()" >
                     <mat-icon>delete</mat-icon></button>
 
             </ng-template>

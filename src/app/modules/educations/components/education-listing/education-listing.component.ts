@@ -34,7 +34,7 @@ export class EducationListingComponent implements OnInit {
         console.log(this.rows);
     }
 
-    private async fetchEducations() {
+     async fetchEducations() {
         const result = await this.educations.fetch(this.page, this.pageSize, this.options);
         if (!result.success)
             return;
@@ -65,8 +65,11 @@ export class EducationListingComponent implements OnInit {
         });
     }
 
-    openEducationDelete() {
+    openEducationDelete(row:Education) {
+
         const modal = this.modal.open(EducationDeleteModalComponent);
+        modal.componentInstance.education_id = row._id;
+
         modal.result.then(async res => {
             if (!res.success)
                 return;
@@ -78,13 +81,18 @@ export class EducationListingComponent implements OnInit {
     openEducationEdit(row: Education) {
         const modal = this.modal.open(EducationEditModalComponent);
         //Send data to modal -> Modal needs to have class variable with same name
-        // TODO: Fali ti ovdje education_id
+        /*modal.componentInstance.education_id = row._id;
         modal.componentInstance.education_name = row.name;
         modal.componentInstance.education_date_from = row.date_from;
         modal.componentInstance.education_date_to = row.date_to;
         modal.componentInstance.education_location = row.location;
         modal.componentInstance.education_start_time = row.start_time;
         modal.componentInstance.education_maximum_participants = row.maximum_participants;
+
+
+         */
+
+        modal.componentInstance.row = row;
 
         modal.result.then(async res => {
             if (!res.success)

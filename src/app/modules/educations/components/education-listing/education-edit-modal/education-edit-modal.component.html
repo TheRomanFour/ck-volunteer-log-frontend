@@ -13,7 +13,7 @@
                 <label>Ime edukacije*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text"  formControlName="name"  [(ngModel)]="education_name" >
+                <input class="form-control" type="text"  formControlName="name"  [(ngModel)]="row.name" >
             </div>
             <div>
 
@@ -25,7 +25,7 @@
                 <label>Datum početka*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="date" formControlName="date_from" [(ngModel)]="education_date_from">
+                <input class="form-control" type="date" formControlName="date_from" [(ngModel)]="row.date_from">
             </div>
         </div>
 
@@ -34,7 +34,7 @@
                 <label>Datum završetka*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="date" formControlName="date_to"  [(ngModel)]="education_date_to">
+                <input class="form-control" type="date" formControlName="date_to"  [(ngModel)]="row.date_to">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
                 <label>Lokacija*:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text" formControlName="location" [(ngModel)]="education_location">
+                <input class="form-control" type="text" formControlName="location" [(ngModel)]="row.location">
             </div>
         </div>
 
@@ -52,16 +52,16 @@
                 <label>Vrijeme početka:</label>
             </div>
             <div class="col-9">
-                <input class="form-control" type="text" formControlName="start_time" [(ngModel)]="education_start_time">
+                <input class="form-control" type="text" formControlName="start_time" [(ngModel)]="row.start_time">
             </div>
         </div>
 
         <div class="form-group row">
         <div class="col-3 d-flex align-items-center">
-            <label>Makismum sudionika:</label>
+            <label>Maksimum sudionika:</label>
         </div>
         <div class="col-9">
-            <input class="form-control" type="text" formControlName="maximum_participants" [(ngModel)]="education_maximum_participants">
+            <input class="form-control" type="text" formControlName="maximum_participants" [(ngModel)]="row.maximum_participants">
         </div>
     </div>
     </form>
@@ -69,7 +69,6 @@
 
 <div class="modal-footer">
     <button (click)="close()" class="btn btn-primary">Zatvori</button>
-    <!-- TODO: Ako ti je varijabla public (education_id) koja dolazi iz .ts file-a. Zasto ga iz HTML-a vracas u .ts?? -->
-    <button [promiseBtn]="promiseBtn" [disabled]="!editForm.valid" (click)="update(education_id)" class="btn btn-success">Spremi</button>
+    <button [promiseBtn]="promiseBtn" [disabled]="!editForm.valid" (click)="update()" class="btn btn-success">Spremi</button>
 </div>
 

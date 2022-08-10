@@ -27,8 +27,7 @@ export class EducationsService {
         return this.juice.putNoHeaders('/api/education/' + id, data);
     }
 
-    //TODO: Id pošalješ funkciji a nigdje ga dalje ne koristiš
     delete(id: string): Promise<Result> {
-        return this.juice.deleteNoHeaders('/api/education');
+        return this.juice.deleteNoHeaders('/api/education/' +id );
     }
 }

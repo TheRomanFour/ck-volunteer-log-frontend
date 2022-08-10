@@ -3,6 +3,7 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import {ToastrService} from 'ngx-toastr'
 import {EducationsService} from "../../../educations.service";
+import {Education} from "../../../educations.model";
 
 @Component({
     templateUrl: "./education-edit-modal.component.html",
@@ -25,14 +26,10 @@ export class EducationEditModalComponent implements OnInit {
     //Jako puno class varijabli koje zauzimaju mjesto u memoriji a za par mjeseci kada budes gledao neces imati pojma zasto je toliko varijabli
     //dovoljna ti je jedna -> education: Education
 
-    education_id: string = "";
-    education_name: string = "";
-    education_date_from?: Date = undefined;
-    education_date_to?: Date = undefined;
-    education_location : string = "";
-    education_start_time: string = "";
-    education_maximum_participants: string = "";
 
+
+
+    row : any = null ;
     promiseBtn: any;
 
 
@@ -42,6 +39,7 @@ export class EducationEditModalComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        console.log(this.row._id)
     }
 
     close() {
@@ -49,10 +47,10 @@ export class EducationEditModalComponent implements OnInit {
     }
 
 
-    update(education_id :string) {
+    update() {
         const data = this.editForm.value;
         this.promiseBtn = (async () => {
-            const result = await this.educationService.update(education_id,data );
+            const result = await this.educationService.update(this.row._id,data );
             if (!result.success) {
                 //ngx-toastr error message
                 this.failedToastr()

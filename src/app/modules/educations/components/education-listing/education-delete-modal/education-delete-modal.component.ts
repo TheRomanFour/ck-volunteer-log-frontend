@@ -15,7 +15,6 @@ export class EducationDeleteModalComponent implements OnInit {
 
     education_id: string = "";
 
-    //treba passat id od volontera na koji smo kliknuli
 
     constructor(private aModal: NgbActiveModal,
                 private educationService: EducationsService,
@@ -30,9 +29,9 @@ export class EducationDeleteModalComponent implements OnInit {
         this.aModal.close({ success: false });
     }
 
-    delete(education_id: string){
+    delete(){
         this.promiseBtn = (async () => {
-            const result = await this.educationService.delete(education_id);
+            const result = await this.educationService.delete(this.education_id);
             if (!result.success) {
                 this.failedToastr()
                 return;
