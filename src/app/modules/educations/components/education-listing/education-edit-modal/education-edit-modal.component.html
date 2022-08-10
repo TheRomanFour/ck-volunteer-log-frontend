@@ -69,7 +69,7 @@
 
 <div class="modal-footer">
     <button (click)="close()" class="btn btn-primary">Zatvori</button>
-    <!-- Ako ti je varijabla public (education_id) koja dolazi iz .ts file-a. Zasto ga iz HTML-a vracas u .ts?? -->
+    <!-- TODO: Ako ti je varijabla public (education_id) koja dolazi iz .ts file-a. Zasto ga iz HTML-a vracas u .ts?? -->
     <button [promiseBtn]="promiseBtn" [disabled]="!editForm.valid" (click)="update(education_id)" class="btn btn-success">Spremi</button>
 </div>
 
