@@ -19,6 +19,12 @@ export class EducationEditModalComponent implements OnInit {
         maximum_participants: new UntypedFormControl("",Validators.nullValidator),
     });
 
+
+    //TODO
+    //Ovo je dosta loš pristup!!!
+    //Jako puno class varijabli koje zauzimaju mjesto u memoriji a za par mjeseci kada budes gledao neces imati pojma zasto je toliko varijabli
+    //dovoljna ti je jedna -> education: Education
+
     education_id: string = "";
     education_name: string = "";
     education_date_from?: Date = undefined;

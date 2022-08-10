@@ -24,9 +24,10 @@ export class EducationsService {
     }
 
     update(id: string, data: any): Promise<Result> {
-        return this.juice.putNoHeaders('/api/education', data);
+        return this.juice.putNoHeaders('/api/education/' + id, data);
     }
 
+    //TODO: Id pošalješ funkciji a nigdje ga dalje ne koristiš
     delete(id: string): Promise<Result> {
         return this.juice.deleteNoHeaders('/api/education');
     }

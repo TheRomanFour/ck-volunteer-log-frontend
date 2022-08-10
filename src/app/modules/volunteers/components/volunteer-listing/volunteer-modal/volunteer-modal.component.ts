@@ -57,7 +57,7 @@ export class VolunteerModalComponent implements OnInit {
             calculated *= 2;
             calculated %= 11;
         }
-        var check = 11 - calculated;
+        let check = 11 - calculated;
 
         if (check === 10) {
             check = 0;
