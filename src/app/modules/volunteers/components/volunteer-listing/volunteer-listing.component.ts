@@ -93,6 +93,7 @@ export class VolunteerListingComponent implements OnInit {
         modal.componentInstance.volunteer_phone = row.phone;
         modal.componentInstance.volunteer_skills = row.attributes.skills;
 
+        modal.componentInstance.row = row;
         modal.result.then(async res => {
             if (!res.success)
                 return;

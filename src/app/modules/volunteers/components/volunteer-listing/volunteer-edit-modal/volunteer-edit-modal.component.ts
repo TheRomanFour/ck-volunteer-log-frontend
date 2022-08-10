@@ -26,21 +26,10 @@ export class VolunteerEditModalComponent implements OnInit {
         skills: new UntypedFormControl("", Validators.nullValidator),
     });
 
-    volunteer_id: string = "";
-    volunteer_firstname: string = "";
-    volunteer_lastname: string = "";
-    volunteer_oib : string = "";
-    volunteer_date_of_birth?: Date = undefined;
-    volunteer_street: string = "";
-    volunteer_street_number: string = "";
-    volunteer_city: string = "";
-    volunteer_postcode: string = "";
-    volunteer_place_of_birth: string = "";
-    volunteer_email: string = "";
-    volunteer_phone: string = "";
-    volunteer_skills: string = "";
 
 
+
+    row : any = null;
     promiseBtn: any;
 
 
@@ -50,6 +39,7 @@ export class VolunteerEditModalComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
     }
 
     close() {
@@ -82,7 +72,7 @@ export class VolunteerEditModalComponent implements OnInit {
         return check === parseInt(oib[10]);
     }
 
-    update(volunteer_id:string) {
+    update() {
         const data = this.editForm.value;
         if (!this.isOibValid(data.oib)) {
             this.failedOib();
@@ -91,7 +81,7 @@ export class VolunteerEditModalComponent implements OnInit {
 
         this.promiseBtn = (async () => {
 
-            const result = await this.volunteerService.update(volunteer_id,data );
+            const result = await this.volunteerService.update(this.row.volunteer_id,data );
             if (!result.success) {
                 //ngx-toastr error message
                 this.failedToastr()
