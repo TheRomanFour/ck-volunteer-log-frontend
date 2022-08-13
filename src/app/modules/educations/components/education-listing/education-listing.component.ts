@@ -6,6 +6,7 @@ import { EducationModalComponent } from "./education-modal/education-modal.compo
 import { EducationDeleteModalComponent } from "./education-delete-modal/education-delete-modal.component";
 import { EducationsService } from "../../educations.service";
 import { EducationEditModalComponent } from "./education-edit-modal/education-edit-modal.component";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-education-listing',
@@ -24,7 +25,9 @@ export class EducationListingComponent implements OnInit {
     rows: Education[] = [];
 
 
-    constructor(private educations: EducationsService, private modal: NgbModal) {
+    constructor(private educations: EducationsService,
+                private modal: NgbModal,
+                private router: Router) {
     }
 
 
@@ -41,18 +44,15 @@ export class EducationListingComponent implements OnInit {
 
         // @ts-ignore
         this.rows = result.payload.items;
-        console.log("edukacija", result);
 
 
     }
 
-    onSelect(event: Event & any) {
+    onSelect(event: any) {
         if (event.type !== "click")
             return;
 
-        console.log(event.row);
-
-        //modal.componentInstance.id = event.row._id;
+        return this.router.navigate([`education/details/${event.row._id}`]);
     }
 
     openEducationWizard() {
