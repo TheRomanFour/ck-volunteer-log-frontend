@@ -50,9 +50,9 @@ export class EducationListingComponent implements OnInit {
 
     onSelect(event: any) {
         if (event.type !== "click")
-            return;
 
-        return this.router.navigate([`education/details/${event.row._id}`]);
+            return;
+        return this.router.navigate([`educations/details/${event.row._id}`]);
     }
 
     openEducationWizard() {

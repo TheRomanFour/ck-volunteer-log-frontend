@@ -28,7 +28,7 @@ export class EducationDeleteModalComponent implements OnInit {
     close() {
         this.aModal.close({ success: false });
     }
-
+    // TODO : modal se ne zatvori nakon sta ga probisem ali se pobrise iz baze
     delete(){
         this.promiseBtn = (async () => {
             const result = await this.educationService.delete(this.education_id);

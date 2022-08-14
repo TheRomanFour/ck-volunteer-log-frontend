@@ -1,14 +1,22 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { VolunteersService } from "../../../volunteers.service";
+import {Volunteer} from "../../../volunteers.model";
+import {
+    VolunteerDeleteModalComponent
+} from "../../volunteer-listing/volunteer-delete-modal/volunteer-delete-modal.component";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
-    templateUrl: "./volunteer-details-basic-info.component.html"
+    templateUrl: "./volunteer-details-basic-info.component.html",
+    styleUrls: ["volunteer-details-basic.component.scss"]
 })
 export class VolunteerDetailsBasicInfoComponent implements OnInit {
 
     constructor(private aRouter: ActivatedRoute,
-                private volunteerService: VolunteersService) {
+                private modal : NgbModal,
+                private volunteerService: VolunteersService,
+                private router : Router) {
     }
 
     volunteer: any;
@@ -23,5 +31,19 @@ export class VolunteerDetailsBasicInfoComponent implements OnInit {
         const result = await this.volunteerService.get(_id);
 
         this.volunteer = result.payload;
+    }
+    openVolunteerDelete(_id :string ) {
+        const modal = this.modal.open(VolunteerDeleteModalComponent);
+        //Send data to modal -> Modal needs to have class variable with same name
+        modal.componentInstance.volunteer_id = _id;
+        modal.result.then(async res => {
+            if (!res.success){
+                return;
+            }
+            return this.router.navigate(['volunteers/']);
+        });
+    }
+
+    openVolunteerEdit(row: Volunteer) {
     }
 }

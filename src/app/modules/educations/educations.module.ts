@@ -17,6 +17,7 @@ import {
 import {
     EducationEditModalComponent
 } from "./components/education-listing/education-edit-modal/education-edit-modal.component";
+import {EducationDetailsComponent} from "./components/details/education-details.component";
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import {
         EducationListingComponent,
         EducationDeleteModalComponent,
         EducationEditModalComponent,
+        EducationDetailsComponent,
 
 
     ],

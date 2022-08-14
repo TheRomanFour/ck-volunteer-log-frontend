@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { EducationListingComponent } from "./components/education-listing/education-listing.component";
+import {EducationDetailsComponent} from "./components/details/education-details.component";
 
 const educationRoutes: Routes = [
     {
@@ -11,6 +12,18 @@ const educationRoutes: Routes = [
     {
         path: "educations",
         component: EducationListingComponent,
+    },
+
+    {
+        path: "educations/details/:id",
+        component: EducationDetailsComponent,
+        children : [
+            {
+                path : "",
+                redirectTo: "info",
+                pathMatch : "full"
+
+            },]
     }
 ];
 

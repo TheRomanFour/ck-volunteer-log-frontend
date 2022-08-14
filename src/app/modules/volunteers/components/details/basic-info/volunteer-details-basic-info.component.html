@@ -8,9 +8,26 @@
     </div>
 </nav>
 
+    <ul>
 
 
-<p> Ime: {{volunteer?.firstname}}</p>
-<p> Prezime: {{volunteer?.lastname}}</p>
-<p> Adresa: {{volunteer?.addresses[0].city}}</p>
+        <li> <span class = "label" >Ime: </span> <span class = "data" >{{volunteer?.firstname}}</span></li>
+        <li>  <span class = "label"> Prezime: </span>  <span class = "data" > {{volunteer?.lastname}}</span></li>
+        <li> <span class = "label"> OIB: </span>   <span class = "data" >{{volunteer.attributes.oib}}</span></li>
+        <li> <span class = "label"> Adresa: </span> <span class = "data" >{{volunteer?.addresses[0].street}}  {{volunteer?.addresses[0].streetNumber}}, {{volunteer?.addresses[0].postcode}} {{volunteer?.addresses[0].city}}</span> </li>
+        <li> <span class = "label"> Datum rođenja: </span>  <span class = "data" > {{volunteer?.attributes.date_of_birth}}</span></li>
+        <li> <span class = "label"> Mjesto rođenja: </span>  <span class = "data" >{{volunteer?.attributes.place_of_birth}}</span></li>
+        <li> <span class = "label"> E-mail: </span>  <span class = "data" >{{volunteer?.email}}</span></li>
+        <li> <span class = "label"> Broj: </span>   <span class = "data" >{{volunteer?.phone}}</span></li>
+        <li> <span class = "label"> Vještine: </span>  <span class = "data" >{{volunteer?.attributes.skills}}</span></li>
+    </ul>
+<button type="button" class="btn btn-success" style="background-color:green; border: green;" (click)="openVolunteerEdit(volunteer._id);$event.stopPropagation()">
+    <mat-icon>edit</mat-icon>
+</button>
+<button type="button" class="btn btn-danger" style="background-color:red; border: red;" (click)="openVolunteerDelete(volunteer._id);$event.stopPropagation()">
+    <mat-icon>delete</mat-icon>
+</button>
+
+
+
 

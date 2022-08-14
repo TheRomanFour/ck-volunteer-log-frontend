@@ -71,7 +71,7 @@ export class VolunteerEditModalComponent implements OnInit {
 
         return check === parseInt(oib[10]);
     }
-
+    //TODO : updatea se kako pisem a ne kako stisnem update fix
     update() {
         const data = this.editForm.value;
         if (!this.isOibValid(data.oib)) {
@@ -80,15 +80,11 @@ export class VolunteerEditModalComponent implements OnInit {
         }
 
         this.promiseBtn = (async () => {
-
             const result = await this.volunteerService.update(this.row.volunteer_id,data );
             if (!result.success) {
-                //ngx-toastr error message
                 this.failedToastr()
                 return;
             }
-
-            //Show ngx-toastr success message
             this.savedToastr();
             this.aModal.close({ success: true });
 

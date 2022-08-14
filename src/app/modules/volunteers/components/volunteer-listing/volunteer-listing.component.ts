@@ -77,47 +77,18 @@ export class VolunteerListingComponent implements OnInit {
 
     openVolunteerEdit(row: Volunteer) {
         const modal = this.modal.open(VolunteerEditModalComponent);
-        //Send data to modal -> Modal needs to have class variable with same name
-        modal.componentInstance.volunteer_id = row._id;
-        modal.componentInstance.volunteer_firstname = row.firstname;
-        modal.componentInstance.volunteer_lastname = row.lastname;
-        modal.componentInstance.volunteer_oib = row.attributes.oib;
-        modal.componentInstance.volunteer_date_of_birth=row.attributes.date_of_birth;
-        modal.componentInstance.volunteer_place_of_birth = row.attributes.place_of_birth;
-        modal.componentInstance.volunteer_street = row.addresses[0].street;
-        modal.componentInstance.volunteer_street_number = row.addresses[0].streetNumber;
-        modal.componentInstance.volunteer_city = row.addresses[0].city;
-        modal.componentInstance.volunteer_postcode = row.addresses[0].postcode;
-        modal.componentInstance.volunteer_place_of_birth = row.attributes.place_of_birth;
-        modal.componentInstance.volunteer_email = row.email;
-        modal.componentInstance.volunteer_phone = row.phone;
-        modal.componentInstance.volunteer_skills = row.attributes.skills;
-
         modal.componentInstance.row = row;
         modal.result.then(async res => {
-            if (!res.success)
+            if (!res.success){
                 return;
+            }
+
 
             await this.fetchVolunteers();
         });
     }
 
-    openVolunteerInfo(row: Volunteer) {
-        const modal = this.modal.open(VolunteerEditModalComponent);
-        //Send data to modal -> Modal needs to have class variable with same name
-        modal.componentInstance.volunteer_id = row._id;
-        modal.componentInstance.volunteer_firstname = row.firstname;
-        modal.componentInstance.volunteer_lastname = row.lastname;
-        modal.componentInstance.volunteer_email = row.email;
-        modal.componentInstance.volunteer_phone = row.phone;
 
-        modal.result.then(async res => {
-            if (!res.success)
-                return;
-
-            await this.fetchVolunteers();
-        });
-    }
 
     Filter() {
 //        const lowerValue = filterValue.toLowerCase();
