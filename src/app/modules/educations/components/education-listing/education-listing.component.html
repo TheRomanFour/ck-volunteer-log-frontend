@@ -60,6 +60,12 @@
             </ng-template>
         </ngx-datatable-column>
 
+        <ngx-datatable-column name="Opis ">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.description }}
+            </ng-template>
+        </ngx-datatable-column>
+
 
         <ngx-datatable-column name="Uredi" prop="name">
             <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
@@ -89,3 +95,4 @@
 
     </ngx-datatable>
 </div>
+

@@ -43,7 +43,7 @@ export class EducationDeleteModalComponent implements OnInit {
     }
 
     savedToastr(){
-        this.toastr.success("Volonter  je izbrisan ",'Uspjeh!')
+        this.toastr.success("Edukacija  je izbrisana ",'Uspjeh!')
     }
     failedToastr(){
         this.toastr.error(" Neuspješno brisanje",'Greška!')

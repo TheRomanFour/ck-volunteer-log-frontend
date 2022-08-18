@@ -21,7 +21,7 @@
         <li> <span class = "label"> Broj: </span>   <span class = "data" >{{volunteer?.phone}}</span></li>
         <li> <span class = "label"> Vještine: </span>  <span class = "data" >{{volunteer?.attributes.skills}}</span></li>
     </ul>
-<button type="button" class="btn btn-success" style="background-color:green; border: green;" (click)="openVolunteerEdit(volunteer._id);$event.stopPropagation()">
+<button type="button" class="btn btn-success" style="background-color:green; margin-right: 10px; border: green;" (click)="openVolunteerEdit();$event.stopPropagation()">
     <mat-icon>edit</mat-icon>
 </button>
 <button type="button" class="btn btn-danger" style="background-color:red; border: red;" (click)="openVolunteerDelete(volunteer._id);$event.stopPropagation()">

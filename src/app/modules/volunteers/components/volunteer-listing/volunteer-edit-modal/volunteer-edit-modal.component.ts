@@ -36,6 +36,17 @@ export class VolunteerEditModalComponent implements OnInit {
 
     ngOnInit(): void {
         this.editForm.controls['firstname'].setValue(this.row.firstname);
+        this.editForm.controls['lastname'].setValue(this.row.lastname);
+        this.editForm.controls['oib'].setValue(this.row.attributes.oib);
+        this.editForm.controls['date_of_birth'].setValue(this.row.attributes.date_of_birth);
+        this.editForm.controls['street'].setValue(this.row.addresses[0].street);
+        this.editForm.controls['streetNumber'].setValue(this.row.addresses[0].streetNumber);
+        this.editForm.controls['city'].setValue(this.row.addresses[0].city);
+        this.editForm.controls['postcode'].setValue(this.row.addresses[0].postcode);
+        this.editForm.controls['place_of_birth'].setValue(this.row.attributes.place_of_birth);
+        this.editForm.controls['email'].setValue(this.row.email);
+        this.editForm.controls['phone'].setValue(this.row.phone);
+        this.editForm.controls['skills'].setValue(this.row.attributes.skills)
     }
 
     close() {

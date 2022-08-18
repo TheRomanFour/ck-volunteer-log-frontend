@@ -18,6 +18,7 @@ import {
     EducationEditModalComponent
 } from "./components/education-listing/education-edit-modal/education-edit-modal.component";
 import {EducationDetailsComponent} from "./components/details/education-details.component";
+import {EducationsRouting} from "./educations.routing";
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import {EducationDetailsComponent} from "./components/details/education-details.
 
     ],
     imports: [
+        EducationsRouting,
         MatInputModule,
         FormsModule,
         ReactiveFormsModule,

@@ -22,7 +22,6 @@ export class EducationDetailsComponent {
 
     async fetchEducation(_id: string) {
         const result = await this.educationService.get(_id);
-
         this.education = result.payload;
     }
 

@@ -62,7 +62,6 @@ export class VolunteerListingComponent implements OnInit {
         return this.router.navigate([`volunteers/details/${event.row._id}`]);
     }
 
-    //Here you need to pass reference from HTML
     openVolunteerDelete(row: Volunteer) {
         const modal = this.modal.open(VolunteerDeleteModalComponent);
         //Send data to modal -> Modal needs to have class variable with same name

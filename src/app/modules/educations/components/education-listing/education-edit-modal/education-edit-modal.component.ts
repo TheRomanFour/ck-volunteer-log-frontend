@@ -3,7 +3,6 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import {ToastrService} from 'ngx-toastr'
 import {EducationsService} from "../../../educations.service";
-import {Education} from "../../../educations.model";
 
 @Component({
     templateUrl: "./education-edit-modal.component.html",
@@ -18,6 +17,7 @@ export class EducationEditModalComponent implements OnInit {
         location: new UntypedFormControl("",Validators.nullValidator ),
         start_time: new UntypedFormControl("",Validators.nullValidator),
         maximum_participants: new UntypedFormControl("",Validators.nullValidator),
+        description : new  UntypedFormControl("", Validators.nullValidator)
     });
 
 
@@ -30,7 +30,15 @@ export class EducationEditModalComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(this.row._id)
+        this.editForm.controls['name'].setValue(this.row.name);
+        this.editForm.controls['date_from'].setValue(this.row.date_from);
+        this.editForm.controls['date_to'].setValue(this.row.date_to);
+        this.editForm.controls['location'].setValue(this.row.location);
+        this.editForm.controls['maximum_participants'].setValue(this.row.maximum_participants);
+        this.editForm.controls['description'].setValue(this.row.description);
+
+
+
     }
 
     close() {
@@ -55,7 +63,7 @@ export class EducationEditModalComponent implements OnInit {
         })()
     }
     savedToastr(){
-        this.toastr.success("Volonter ažuriran",'Uspjeh!')
+        this.toastr.success("Edukacija ažurirana",'Uspjeh!')
     }
     failedToastr(){
         this.toastr.error(" Neuspješno ažuriranje",'Greška!')

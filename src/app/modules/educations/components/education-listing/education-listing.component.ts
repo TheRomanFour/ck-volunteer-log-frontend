@@ -45,8 +45,8 @@ export class EducationListingComponent implements OnInit {
 
     onSelect(event: any) {
         if (event.type !== "click")
-
             return;
+
         return this.router.navigate([`educations/details/${event.row._id}`]);
     }
 
@@ -74,17 +74,7 @@ export class EducationListingComponent implements OnInit {
 
     openEducationEdit(row: Education) {
         const modal = this.modal.open(EducationEditModalComponent);
-        //Send data to modal -> Modal needs to have class variable with same name
-        /*modal.componentInstance.education_id = row._id;
-        modal.componentInstance.education_name = row.name;
-        modal.componentInstance.education_date_from = row.date_from;
-        modal.componentInstance.education_date_to = row.date_to;
-        modal.componentInstance.education_location = row.location;
-        modal.componentInstance.education_start_time = row.start_time;
-        modal.componentInstance.education_maximum_participants = row.maximum_participants;
 
-
-         */
 
         modal.componentInstance.row = row;
 
