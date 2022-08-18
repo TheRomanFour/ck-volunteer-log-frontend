@@ -21,17 +21,8 @@ export class EducationEditModalComponent implements OnInit {
     });
 
 
-    //TODO
-    //Ovo je dosta loš pristup!!!
-    //Jako puno class varijabli koje zauzimaju mjesto u memoriji a za par mjeseci kada budes gledao neces imati pojma zasto je toliko varijabli
-    //dovoljna ti je jedna -> education: Education
-
-
-
-
     row : any = null ;
     promiseBtn: any;
-
 
     constructor(private aModal: NgbActiveModal,
                 private educationService: EducationsService ,

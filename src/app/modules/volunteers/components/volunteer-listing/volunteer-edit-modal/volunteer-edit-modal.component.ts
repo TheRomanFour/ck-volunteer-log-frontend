@@ -26,12 +26,8 @@ export class VolunteerEditModalComponent implements OnInit {
         skills: new UntypedFormControl("", Validators.nullValidator),
     });
 
-
-
-
     row : any = null;
     promiseBtn: any;
-
 
     constructor(private aModal: NgbActiveModal,
                 private volunteerService: VolunteersService,
@@ -39,7 +35,7 @@ export class VolunteerEditModalComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
+        this.editForm.controls['firstname'].setValue(this.row.firstname);
     }
 
     close() {
@@ -71,7 +67,10 @@ export class VolunteerEditModalComponent implements OnInit {
 
         return check === parseInt(oib[10]);
     }
-    //TODO : updatea se kako pisem a ne kako stisnem update fix
+    //TODO : updatea se kako pisem a ne kako stisnem update fix =>
+    // ODGOVOR: To ti je zato jer saljes podatke direktno u HTML preko ([ngModel])
+    // trebao bi podatke zapisati direktno u formu
+    // Primjer ti je u ngOnInit()
     update() {
         const data = this.editForm.value;
         if (!this.isOibValid(data.oib)) {
@@ -80,7 +79,7 @@ export class VolunteerEditModalComponent implements OnInit {
         }
 
         this.promiseBtn = (async () => {
-            const result = await this.volunteerService.update(this.row.volunteer_id,data );
+            const result = await this.volunteerService.update(this.row._id, data);
             if (!result.success) {
                 this.failedToastr()
                 return;
