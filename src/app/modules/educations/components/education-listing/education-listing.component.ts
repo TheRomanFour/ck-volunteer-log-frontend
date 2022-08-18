@@ -32,9 +32,7 @@ export class EducationListingComponent implements OnInit {
 
 
     async ngOnInit(): Promise<void> {
-
         await this.fetchEducations();
-        console.log(this.rows);
     }
 
      async fetchEducations() {
@@ -42,10 +40,7 @@ export class EducationListingComponent implements OnInit {
         if (!result.success)
             return;
 
-        // @ts-ignore
         this.rows = result.payload.items;
-
-
     }
 
     onSelect(event: any) {
@@ -66,7 +61,6 @@ export class EducationListingComponent implements OnInit {
     }
 
     openEducationDelete(row:Education) {
-
         const modal = this.modal.open(EducationDeleteModalComponent);
         modal.componentInstance.education_id = row._id;
 
@@ -75,7 +69,7 @@ export class EducationListingComponent implements OnInit {
                 return;
 
             await this.fetchEducations();
-        });
+        }, () => {});
     }
 
     openEducationEdit(row: Education) {
