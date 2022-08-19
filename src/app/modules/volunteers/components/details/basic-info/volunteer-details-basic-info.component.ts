@@ -22,7 +22,6 @@ export class VolunteerDetailsBasicInfoComponent implements OnInit {
 
     async ngOnInit(): Promise<void> {
         const id = this.aRouter.snapshot.parent?.params?.['id'];
-
         await this.fetchVolunteer(id);
     }
 

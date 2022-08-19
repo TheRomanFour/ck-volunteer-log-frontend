@@ -78,10 +78,7 @@ export class VolunteerEditModalComponent implements OnInit {
 
         return check === parseInt(oib[10]);
     }
-    //TODO : updatea se kako pisem a ne kako stisnem update fix =>
-    // ODGOVOR: To ti je zato jer saljes podatke direktno u HTML preko ([ngModel])
-    // trebao bi podatke zapisati direktno u formu
-    // Primjer ti je u ngOnInit()
+
     update() {
         const data = this.editForm.value;
         if (!this.isOibValid(data.oib)) {

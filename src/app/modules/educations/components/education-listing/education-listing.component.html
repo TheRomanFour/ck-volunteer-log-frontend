@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light " style="background-color:#e2bd4f; ">
+<nav class="navbar navbar-light " style="background-color:#e2bd4f; border-radius: 12px; ">
     <div class="container-fluid">
         <h1 style="color: black;"> <mat-icon style = "font-size: 30px; margin-right: 15px;"> book</mat-icon>Edukacije</h1>
         <div class="d-flex">
@@ -60,11 +60,6 @@
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Opis ">
-            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.description }}
-            </ng-template>
-        </ngx-datatable-column>
 
 
         <ngx-datatable-column name="Uredi" prop="name">

@@ -1,10 +1,10 @@
-<nav class="navbar navbar-light " style="background-color:#a3d3dd; ">
+<nav class="navbar navbar-light " style="background-color:#a3d3dd;border-radius: 12px; ">
     <div class="container-fluid">
         <h1 style="color: black;"> <mat-icon style = "font-size: 30px; margin-right: 10px;">rowing</mat-icon> Vježbe</h1>
         <div class="d-flex">
             <mat-form-field >
                 <input (keyup) = "Filter()" matInput placeholder= "Pretraga vježbi" style="position: center; font-size: 17px;">
-                <mat-icon matPrefix matPrefix style = "margin-right: 10px; ">search</mat-icon>
+                <mat-icon matPrefix style = "margin-right: 10px; ">search</mat-icon>
             </mat-form-field>
             <button (click)="openTrainingWizard()" type="button" class="btn " style="background-color: white; color : black; border-radius: 10px; margin-left: 30px;" >
                 Dodaj vježbu

@@ -34,6 +34,8 @@ export class EducationEditModalComponent implements OnInit {
         this.editForm.controls['date_from'].setValue(this.row.date_from);
         this.editForm.controls['date_to'].setValue(this.row.date_to);
         this.editForm.controls['location'].setValue(this.row.location);
+        this.editForm.controls['start_time'].setValue(this.row.start_time);
+
         this.editForm.controls['maximum_participants'].setValue(this.row.maximum_participants);
         this.editForm.controls['description'].setValue(this.row.description);
 
