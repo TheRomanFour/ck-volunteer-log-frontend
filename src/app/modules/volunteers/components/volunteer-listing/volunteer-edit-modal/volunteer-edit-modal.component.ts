@@ -87,6 +87,19 @@ export class VolunteerEditModalComponent implements OnInit {
         }
 
         this.promiseBtn = (async () => {
+            data.address = {
+                ...this.row.addresses[0],
+                street: data.street,
+                streetNumber: data.streetNumber,
+                city: data.city,
+                postcode: data.postcode,
+            };
+
+            delete data.street;
+            delete data.streetNumber;
+            delete data.city;
+            delete data.postcode;
+
             const result = await this.volunteerService.update(this.row._id, data);
             if (!result.success) {
                 this.failedToastr()

@@ -15,8 +15,10 @@ export class VolunteersService {
         return this.juice.getNoHeaders(`/api/volunteer/${ id }`);
     }
 
-    fetch(page: number, pageSize: number, options: IFetchOptions): Promise<FetchResult<Volunteer>> {
-        return this.juice.postNoHeaders(`/api/volunteer/${ page }/${ pageSize }`, options);
+    fetch(page: number, pageSize: number, options: IFetchOptions, term?: string): Promise<FetchResult<Volunteer>> {
+        return term
+            ? this.juice.postNoHeaders(`/api/volunteer/${ page }/${ pageSize }/${ term }`, options)
+            : this.juice.postNoHeaders(`/api/volunteer/${ page }/${ pageSize }`, options);
     }
 
     create(data: any): Promise<Result<string>> {

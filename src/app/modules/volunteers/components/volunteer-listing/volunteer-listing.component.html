@@ -4,7 +4,7 @@
         <h1 style="color: black;"> <mat-icon style = "font-size: 30px; margin-right: 10px;  ">person</mat-icon> Volonteri</h1>
         <div class="d-flex">
             <mat-form-field >
-                <input (keyup) = "Filter()" matInput placeholder="Pretraga volontera" style="position: center; font-size: 17px;">
+                <input [formControl]="searchInput" matInput placeholder="Pretraga volontera" style="position: center; font-size: 17px;">
                 <mat-icon matPrefix style = "margin-right: 10px; ">search</mat-icon>
             </mat-form-field>
             <button id="dodajvolontera" (click)="openVolunteerWizard()" type="button" class="btn" style = "margin-left: 15px; background-color: white; border-radius: 10px;" >
