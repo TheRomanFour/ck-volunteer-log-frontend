@@ -5,6 +5,7 @@ import { VolunteerDetailsComponent } from "./components/details/volunteer-detail
 import {
     VolunteerDetailsBasicInfoComponent
 } from "./components/details/basic-info/volunteer-details-basic-info.component";
+import { VolunteerEducationsComponent } from "./components/details/educations/volunteer-educations.component";
 
 const volunteerRoutes: Routes = [
     {
@@ -28,6 +29,10 @@ const volunteerRoutes: Routes = [
             {
                 path: "info",
                 component: VolunteerDetailsBasicInfoComponent
+            },
+            {
+                path: "educations",
+                component: VolunteerEducationsComponent
             }
         ]
     }

@@ -22,6 +22,7 @@ import { VolunteerDetailsComponent } from "./components/details/volunteer-detail
 import {
     VolunteerDetailsBasicInfoComponent
 } from "./components/details/basic-info/volunteer-details-basic-info.component";
+import { VolunteerEducationsComponent } from "./components/details/educations/volunteer-educations.component";
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import {
         VolunteerDeleteModalComponent,
         VolunteerEditModalComponent,
         VolunteerDetailsComponent,
-        VolunteerDetailsBasicInfoComponent
+        VolunteerDetailsBasicInfoComponent,
+        VolunteerEducationsComponent
     ],
     imports: [
         MatIconModule,
