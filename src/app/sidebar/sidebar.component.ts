@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
 import {BreakpointObserver} from "@angular/cdk/layout";
@@ -9,15 +10,19 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 })
 export class SidebarComponent implements OnInit {
 
+  constructor(private observer: BreakpointObserver,
+    private router: Router) {
 
-  ngOnInit(): void {
+  }
+
+  async ngOnInit(): Promise<void> {
+    if (window.location.pathname === '/') {
+       await this.router.navigate(['volunteers']);
+    }
   }
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver) {
-
-  }
   ngAfterViewInit() {
     this.observer.observe(['(max-width: 900px)']).subscribe((res)=> {
       if(res.matches){
@@ -27,7 +32,6 @@ export class SidebarComponent implements OnInit {
       else {
         this.sidenav.mode = 'side';
         this.sidenav.open();
-
       }
     });
   }

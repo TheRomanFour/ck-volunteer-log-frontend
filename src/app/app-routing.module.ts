@@ -6,13 +6,14 @@ import {TrainingsListingComponent} from "./modules/trainings/components/training
 
 
 const routes: Routes = [
+    { 
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'volunteers'
+    },
     { path: 'volunteers', component: VolunteerListingComponent },
-    {path: 'educations', component: EducationListingComponent },
+    { path: 'educations', component: EducationListingComponent },
     { path: 'trainings', component: TrainingsListingComponent },
-
-
-
-    { path: '',   redirectTo: 'volunteers', pathMatch: 'full' },
 ];
 
 @NgModule({

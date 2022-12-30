@@ -14,7 +14,7 @@
     </div>
 </nav>
 
-<div class="tablica">
+<div>
     <ngx-datatable
             class="material striped"
             [headerHeight]="50"
@@ -32,12 +32,6 @@
         <ngx-datatable-column name="Prezime">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
                 {{ row.lastname }}
-            </ng-template>
-        </ngx-datatable-column>
-
-        <ngx-datatable-column name="OIB">
-            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.attributes.oib }}
             </ng-template>
         </ngx-datatable-column>
 
@@ -74,7 +68,7 @@
 
 
 
-        <ngx-datatable-column name="Uredi" prop="name">
+        <ngx-datatable-column name="Uredi" prop="name" [width]="75">
             <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
                          let-row="row">
 

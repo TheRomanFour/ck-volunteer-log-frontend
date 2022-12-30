@@ -13,7 +13,6 @@ export class AppComponent {
 
 
     ngOnInit() {
-        console.log("Am I here?")
     }
 
 

@@ -18,7 +18,12 @@ export class EducationListingComponent implements OnInit {
     page: number = 0;
     pageSize: number = 10;
     options: IFetchOptions = {
-        filter: [],
+        filter: [{
+            property: 'type',
+            fullText: false,
+            language: false,
+            term: 'education'
+        }],
         sort: { prop: "email", dir: "asc" }
     };
 

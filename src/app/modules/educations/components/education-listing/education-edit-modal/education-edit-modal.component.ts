@@ -10,6 +10,7 @@ import {EducationsService} from "../../../educations.service";
 })
 export class EducationEditModalComponent implements OnInit {
 
+    //TODO Add validation
     editForm: UntypedFormGroup = new UntypedFormGroup({
         name: new UntypedFormControl("",Validators.nullValidator),
         date_from: new UntypedFormControl("",Validators.nullValidator ),

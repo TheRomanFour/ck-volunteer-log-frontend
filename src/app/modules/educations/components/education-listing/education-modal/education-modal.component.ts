@@ -10,8 +10,9 @@ import {ToastrService} from "ngx-toastr";
 })
 export class EducationModalComponent implements OnInit {
 
+    //TODO create validation
     createForm: UntypedFormGroup = new UntypedFormGroup({
-        name: new UntypedFormControl("",Validators.nullValidator),
+        name: new UntypedFormControl("",Validators.required),
         date_from: new UntypedFormControl("",Validators.nullValidator ),
         date_to: new UntypedFormControl("",Validators.nullValidator ),
         location: new UntypedFormControl("",Validators.nullValidator ),
@@ -38,7 +39,7 @@ export class EducationModalComponent implements OnInit {
     }
     save() {
         this.promiseBtn = (async () => {
-            const data = this.createForm.value;
+            const data = { type:'education', ...this.createForm.value };
             const result = await this.educationsService.create(data);
             if (!result.success) {
                 this.failedToastr();
