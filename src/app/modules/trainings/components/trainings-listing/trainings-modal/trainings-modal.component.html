@@ -1,54 +1,85 @@
 <div class="modal-header">
-    <h1 class="modal-title" id="staticBackdropLabel"> Unos edukacije</h1>
+    <h1 class="modal-title" id="staticBackdropLabel"> Unos vježbe</h1>
     <button type="button" class="close" aria-label="Close" (click)="close()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 
 <div class="modal-body">
-    <form [formGroup]="createForm">
+<form [formGroup]="createForm">
 
-        <div class="form-group row">
-            <div class="col-3 d-flex align-items-center">
-                <label>Naslov*:</label>
-            </div>
-            <div class="col-9">
-                <input class="form-control" type="text" formControlName="title">
-            </div>
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Ime vježbe*:</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" formControlName="name">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Datum početka*:</label>
+        </div>
+        <div class="col-9">
+
+            <input class="form-control" type="date" formControlName="date_from">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Datum kraja*:</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="date" formControlName="date_to">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Lokacija*:</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" formControlName="location">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Vrijeme početka*:</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="time" formControlName="start_time">
         </div>
 
-        <div class="form-group row">
-            <div class="col-3 d-flex align-items-center">
-                <label>Datum*:</label>
-            </div>
-            <div class="col-9">
-                <input class="form-control" type="date" formControlName="date">
-            </div>
+    </div>
+
+
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Maksimalno sudionika*:</label>
+        </div>
+        <div class="col-9">
+            <input class="form-control" type="text" formControlName="maximum_participants">
         </div>
 
-        <div class="form-group row">
-            <div class="col-3 d-flex align-items-center">
-                <label>Sati trajanja*:</label>
-            </div>
-            <div class="col-9">
-                <input class="form-control" type="text" formControlName="hours">
-            </div>
-        </div>
+    </div>
 
-        <div class="form-group row">
-            <div class="col-3 d-flex align-items-center">
-                <label>Opis*:</label>
-            </div>
-            <div class="col-9">
-                <input class="form-control" type="text" formControlName="description">
-            </div>
+    <div class="form-group row">
+        <div class="col-3 d-flex align-items-center">
+            <label>Opis:</label>
         </div>
-    </form>
+        <div class="col-9">
+            <textarea class="form-control" type="text" formControlName="description"> </textarea>
+        </div>
+    </div>
+</form>
 </div>
 
 <div class="modal-footer">
     <button (click)="close()" class="btn btn-primary">Zatvori</button>
-    <button  class="btn btn-primary" [promiseBtn]="promiseBtn" [disabled]="!createForm.valid" (click)="save()" > Spremi </button>
+    <button  class="btn btn-success" [promiseBtn]="promiseBtn" [disabled]="!createForm.valid" (click)="save()" > Spremi </button>
 </div>
 
 

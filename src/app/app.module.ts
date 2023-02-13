@@ -21,6 +21,8 @@ import { Angular2PromiseButtonModule } from "angular2-promise-buttons";
 import {EducationsModule} from "./modules/educations/educations.module";
 import {TrainingsModule} from "./modules/trainings/trainings.module";
 import {ToastrModule} from 'ngx-toastr'
+import {InterventionsRouting} from "./modules/intervention/interventions.routing";
+import {InterventionsModule} from "./modules/intervention/interventions.module";
 
 @NgModule({
     declarations: [
@@ -35,6 +37,7 @@ import {ToastrModule} from 'ngx-toastr'
         ReactiveFormsModule,
         EducationsModule,
         TrainingsModule,
+        InterventionsModule,
         BrowserModule,
         NgxDatatableModule,
         AppRoutingModule,

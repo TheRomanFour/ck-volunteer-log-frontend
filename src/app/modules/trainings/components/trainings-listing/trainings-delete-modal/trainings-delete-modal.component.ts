@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
-import {TrainingsService} from "../../../trainings.service";
+import {EducationsService} from "../../../../educations/educations.service";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -11,33 +12,42 @@ import {TrainingsService} from "../../../trainings.service";
 
 export class TrainingsDeleteModalComponent implements OnInit {
 
+    education_id: string = "";
 
-    //treba passat id od volontera na koji smo kliknuli
 
     constructor(private aModal: NgbActiveModal,
-                private trainingsService: TrainingsService) {
+                private educationService: EducationsService,
+                private toastr: ToastrService) {
     }
+
     ngOnInit(): void {
     }
 
     promiseBtn: any;
 
     close() {
-        this.aModal.close({ success: false });
+        this.aModal.close({success: false});
     }
-    delete(){ /*
+
+    delete() {
         this.promiseBtn = (async () => {
-            const data = this.volunteerService.get(id());
-            const result = await this.volunteerService.delete(id);
+            const result = await this.educationService.delete(this.education_id);
             if (!result.success) {
-                //ngx-toastr error message
+                this.failedToastr()
                 return;
             }
-
-            //Show ngx-toastr success message
-            this.aModal.close({ success: true });
+            this.aModal.close({success: true});
+            this.savedToastr()
         })()
-       */
-        console.log("obrisan");
+
     }
+
+    savedToastr() {
+        this.toastr.success("Vježba obrisana ", 'Uspjeh!')
+    }
+
+    failedToastr() {
+        this.toastr.error(" Neuspješno brisanje", 'Greška!')
+    }
+
 }

@@ -72,8 +72,5 @@ export class EducationEditModalComponent implements OnInit {
         this.toastr.error(" Neuspješno ažuriranje",'Greška!')
     }
 
-    failedOib() {
-        this.toastr.error(" Netočan OIB", 'Greška!');
-    }
 
 }

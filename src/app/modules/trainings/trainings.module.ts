@@ -13,6 +13,10 @@ import {
     TrainingsDeleteModalComponent
 } from "./components/trainings-listing/trainings-delete-modal/trainings-delete-modal.component";
 import {MatInputModule} from "@angular/material/input";
+import {
+    TrainingsEditModalComponent
+} from "./components/trainings-listing/trainings-edit-modal/trainings-edit-modal.component";
+import {TrainingsDetailsComponent} from "./components/details/trainings-details.component";
 
 
 @NgModule({
@@ -20,6 +24,11 @@ import {MatInputModule} from "@angular/material/input";
         TrainingsModalComponent,
         TrainingsListingComponent,
         TrainingsDeleteModalComponent,
+        TrainingsEditModalComponent,
+        TrainingsDetailsComponent,
+
+
+
     ],
     imports: [
         MatInputModule,

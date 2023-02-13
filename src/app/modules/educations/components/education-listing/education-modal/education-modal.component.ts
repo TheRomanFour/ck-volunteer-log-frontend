@@ -13,8 +13,8 @@ export class EducationModalComponent implements OnInit {
     //TODO create validation
     createForm: UntypedFormGroup = new UntypedFormGroup({
         name: new UntypedFormControl("",Validators.required),
-        date_from: new UntypedFormControl("",Validators.nullValidator ),
-        date_to: new UntypedFormControl("",Validators.nullValidator ),
+        date_from: new UntypedFormControl("",Validators.required ),
+        date_to: new UntypedFormControl("",Validators.required ),
         location: new UntypedFormControl("",Validators.nullValidator ),
         start_time: new UntypedFormControl("",Validators.nullValidator),
         maximum_participants: new UntypedFormControl("",Validators.nullValidator),

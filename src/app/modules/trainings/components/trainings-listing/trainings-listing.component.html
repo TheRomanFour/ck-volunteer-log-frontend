@@ -15,32 +15,63 @@
 
 <div>
     <ngx-datatable
-            class="bootstrap fullscreen"
-            [rowHeight]="50"
+
+            class="material striped"
+            [rowHeight]="'auto'"
+            [headerHeight]="50"
             (activate)='onSelect($event)'
             [rows]="rows">
 
-        <ngx-datatable-column name="Naziv">
+        <ngx-datatable-column name="Ime vježbe">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.naziv }}
+                {{ row.name }}
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Datum">
+        <ngx-datatable-column name="Datum početka">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.date }}
+                {{ row.date_from }}
+
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Vrijeme trajanja">
+        <ngx-datatable-column name="Datum završetka">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.time }}
+                {{ row.date_to }}
+
             </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Opis">
+        <ngx-datatable-column name="Lokacija">
             <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
-                {{ row.description }}
+                {{ row.location }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Vrijeme početka">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.start_time }}
+            </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Maksimum sudionika">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                {{ row.maximum_participants }}
+            </ng-template>
+        </ngx-datatable-column>
+
+
+
+        <ngx-datatable-column name="Uredi" prop="name">
+            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"
+                         let-row="row">
+
+                <!--send "row" as argument to the function openVolunteerDelete()-->
+                <button type="button" class="btn btn-success" style="background-color:green; border: green;" (click)="openTrainingEdit(row);$event.stopPropagation()">
+                    <mat-icon>edit</mat-icon>
+                </button>
+
+
             </ng-template>
         </ngx-datatable-column>
 
@@ -50,7 +81,7 @@
                          let-row="row">
 
                 <button type="button" class="btn btn-danger" style="background-color:red; border: red;"
-                        (click)="openTrainingDelete()" >
+                        (click)="openTrainingDelete(row);$event.stopPropagation()" >
                     <mat-icon>delete</mat-icon></button>
 
             </ng-template>

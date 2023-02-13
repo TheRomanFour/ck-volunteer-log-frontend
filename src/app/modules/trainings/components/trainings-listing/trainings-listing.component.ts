@@ -5,6 +5,12 @@ import {TrainingsService} from "../../trainings.service";
 import {Training} from "../../training.model";
 import {TrainingsModalComponent} from "./trainings-modal/trainings-modal.component";
 import {TrainingsDeleteModalComponent} from "./trainings-delete-modal/trainings-delete-modal.component";
+import {EducationsService} from "../../../educations/educations.service";
+import {Education} from "../../../educations/educations.model";
+import {
+  EducationEditModalComponent
+} from "../../../educations/components/education-listing/education-edit-modal/education-edit-modal.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-training-listing',
@@ -16,37 +22,41 @@ export class TrainingsListingComponent implements OnInit {
   page: number = 0;
   pageSize: number = 10;
   options: IFetchOptions = {
-    filter: [],
+    filter: [{
+      property: 'type',
+      fullText: false,
+      language: false,
+      term: 'training'
+    }],
     sort: { prop: "email", dir: "asc" }
   };
 
   rows: Training[] = [];
 
-  constructor(private educations: TrainingsService, private modal: NgbModal) { }
+  constructor(private trainings: EducationsService,
+              private modal: NgbModal,
+              private router: Router) { }
 
 
   async ngOnInit(): Promise<void> {
     await this.fetchTrainings();
   }
 
-  private async fetchTrainings() {
-    const result = await this.educations.fetch(this.page, this.pageSize, this.options);
+  async fetchTrainings() {
+    const result = await this.trainings.fetch(this.page, this.pageSize, this.options);
     if (!result.success)
       return;
 
     // @ts-ignore
     this.rows = result.payload.items;
-    console.log(result);
 
 
   }
-  onSelect(event: Event & any) {
+  onSelect(event: any) {
     if (event.type !== "click")
       return;
 
-    console.log(event.row);
-
-    //modal.componentInstance.id = event.row._id;
+    return this.router.navigate([`trainings/details/${event.row._id}`]);
   }
 
   openTrainingWizard() {
@@ -59,8 +69,22 @@ export class TrainingsListingComponent implements OnInit {
     });
   }
 
-  openTrainingDelete() {
+  openTrainingDelete(row:Education) {
     const modal = this.modal.open(TrainingsDeleteModalComponent);
+    modal.componentInstance.education_id = row._id;
+    modal.result.then(async res => {
+      if (!res.success)
+        return;
+
+      await this.fetchTrainings();
+    });
+  }
+  openTrainingEdit(row: Education) {
+    const modal = this.modal.open(EducationEditModalComponent);
+
+
+    modal.componentInstance.row = row;
+
     modal.result.then(async res => {
       if (!res.success)
         return;
