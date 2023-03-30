@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light " style="background-color:#e2bd4f; border-radius: 12px; margin-bottom: 20px;">
+    <div class="container-fluid">
+
+
+        <h1 style="color: black;"> <mat-icon style = "font-size: 30px; margin-right: 10px;">book</mat-icon> Vježba:  {{education?.name}} </h1>
+    </div>
+</nav>
+
+
+
+
+<ul>
+
+
+    <li> <span class = "label" >Ime edukacije: </span> <span class = "data" >{{education?.name}}</span></li>
+    <li>  <span class = "label"> Datum početka: </span>  <span class = "data" > {{education?.date_from}}</span></li>
+    <li> <span class = "label"> Datum kraja: </span>   <span class = "data" >{{education.date_to}}</span></li>
+    <li> <span class = "label"> Lokacija: </span> <span class = "data" >{{education?.location}}  </span> </li>
+    <li> <span class = "label"> Vrijeme početka: </span>  <span class = "data" > {{education?.start_time}}</span></li>
+    <li> <span class = "label"> Maksimalno sudionika: </span>  <span class = "data" >{{education?.maximum_participants}}</span></li>
+    <li> <span class = "label"> Opis: </span>  <span class = "data" >{{education?.description}}</span></li>
+</ul>
+
+<button type="button" class="btn btn-success" style="background-color:green; margin-right: 10px; border: green;" (click)="openVolunteerEdit();$event.stopPropagation()">
+    <mat-icon>edit</mat-icon>
+</button>
+<button type="button" class="btn btn-danger" style="background-color:red; border: red;" (click)="openVolunteerDelete(education._id);$event.stopPropagation()">
+    <mat-icon>delete</mat-icon>
+</button>
